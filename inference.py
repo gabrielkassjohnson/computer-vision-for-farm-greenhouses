@@ -72,7 +72,7 @@ def main():
     #class_to_idx = {cls: idx for (idx, cls) in enumerate(weights.meta["categories"])}
     #classes = [background, plant]
     mask = normalized_masks[0, 0]
-    to_pil_image(mask).show()
+    show(mask)
     bool_mask = mask.to(dtype=torch.bool)
     print('bool mask shape',bool_mask.shape)
     print('img shape',test_img.size())
