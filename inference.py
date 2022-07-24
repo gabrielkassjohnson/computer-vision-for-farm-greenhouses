@@ -34,7 +34,7 @@ def main():
 
     test_set_dir = './dataset'
 
-    img_path = os.path.join(test_set_dir, "plant034_rgb.png")
+    img_path = os.path.join(test_set_dir, "115732.jpg")
 
     test_img = read_image(path=img_path,mode=ImageReadMode.RGB)
 
@@ -71,7 +71,7 @@ def main():
     normalized_masks = prediction.softmax(dim=1)
     #class_to_idx = {cls: idx for (idx, cls) in enumerate(weights.meta["categories"])}
     #classes = [background, plant]
-    mask = normalized_masks[0, 0]
+    mask = normalized_masks[0, 1]
     show(mask)
     bool_mask = mask.to(dtype=torch.bool)
     print('bool mask shape',bool_mask.shape)
