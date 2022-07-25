@@ -137,18 +137,32 @@ def main(args):
     else:
         torch.backends.cudnn.benchmark = True
 
-    dataset, num_classes = get_dataset(args.data_path, args.dataset, "train", get_transform(True, args))
-    dataset_test, _ = get_dataset(args.data_path, args.dataset, "val", get_transform(False, args))
+    '''
+    train_dataset = MyDataset(train_transform)
+    val_dataset = MyDataset(val_transform)
+    train_indices, val_indices = sklearn.model_selection.train_test_split(indices)
+    train_dataset = torch.utils.data.Subset(train_dataset, train_indices)
+    val_dataset = torch.utils.data.Subset(train_dataset, val_indices)
+    '''
+    dataset, num_classes = get_dataset('./dataset/train', args.dataset, "train", get_transform(True, args))
 
+    dataset_train, dataset_test = torch.utils.data.random_split(full_dataset.dataset, [train_size, test_size])
+    dataset_test, _ = get_dataset('./dataset/train', args.dataset, "val", get_transform(False, args))
+
+    
+    concat_dataset = torch.utils.data.ConcatDataset([dataset])
+    concat_dataset_test = torch.utils.data.ConcatDataset([dataset_test])
+
+    print(concat_dataset)
     if args.distributed:
-        train_sampler = torch.utils.data.distributed.DistributedSampler(dataset)
-        test_sampler = torch.utils.data.distributed.DistributedSampler(dataset_test, shuffle=False)
+        train_sampler = torch.utils.data.distributed.DistributedSampler(concat_dataset)
+        test_sampler = torch.utils.data.distributed.DistributedSampler(concat_dataset_test, shuffle=False)
     else:
-        train_sampler = torch.utils.data.RandomSampler(dataset)
-        test_sampler = torch.utils.data.SequentialSampler(dataset_test)
+        train_sampler = torch.utils.data.RandomSampler(concat_dataset)
+        test_sampler = torch.utils.data.SequentialSampler(concat_dataset_test)
 
     data_loader = torch.utils.data.DataLoader(
-        dataset,
+        concat_dataset,
         batch_size=args.batch_size,
         sampler=train_sampler,
         num_workers=args.workers,
@@ -157,7 +171,7 @@ def main(args):
     )
 
     data_loader_test = torch.utils.data.DataLoader(
-        dataset_test, batch_size=1, sampler=test_sampler, num_workers=args.workers, collate_fn=utils.collate_fn
+        concat_dataset_test, batch_size=1, sampler=test_sampler, num_workers=args.workers, collate_fn=utils.collate_fn
     )
 
     model = torchvision.models.segmentation.__dict__[args.model](
@@ -265,9 +279,9 @@ def get_args_parser(add_help=True):
     parser.add_argument("--aux-loss", action="store_true", help="auxiliar loss")
     parser.add_argument("--device", default="cuda", type=str, help="device (Use cuda or cpu Default: cuda)")
     parser.add_argument(
-        "-b", "--batch-size", default=2, type=int, help="images per gpu, the total batch size is $NGPU x batch_size"
+        "-b", "--batch-size", default=1, type=int, help="images per gpu, the total batch size is $NGPU x batch_size"
     )
-    parser.add_argument("--epochs", default=10, type=int, metavar="N", help="number of total epochs to run")
+    parser.add_argument("--epochs", default=11, type=int, metavar="N", help="number of total epochs to run")
 
     parser.add_argument(
         "-j", "--workers", default=4, type=int, metavar="N", help="number of data loading workers (default: 16)"
@@ -286,9 +300,9 @@ def get_args_parser(add_help=True):
     parser.add_argument("--lr-warmup-epochs", default=0, type=int, help="the number of epochs to warmup (default: 0)")
     parser.add_argument("--lr-warmup-method", default="linear", type=str, help="the warmup method (default: linear)")
     parser.add_argument("--lr-warmup-decay", default=0.01, type=float, help="the decay for lr")
-    parser.add_argument("--print-freq", default=10, type=int, help="print frequency")
+    parser.add_argument("--print-freq", default=2, type=int, help="print frequency")
     parser.add_argument("--output-dir", default=".", type=str, help="path to save outputs")
-    parser.add_argument("--resume", default="", type=str, help="path of checkpoint")
+    parser.add_argument("--resume", default="./checkpoint.pth", type=str, help="path of checkpoint")
     parser.add_argument("--start-epoch", default=0, type=int, metavar="N", help="start epoch")
     parser.add_argument(
         "--test-only",
