@@ -10,7 +10,7 @@ import torchvision.transforms as T
 from torchvision.io import ImageReadMode
 from torchvision.models.segmentation import lraspp_mobilenet_v3_large, LRASPP_MobileNet_V3_Large_Weights
 plt.rcParams["savefig.bbox"] = 'tight'
-
+from torchvision.utils import save_image
 from torchvision.transforms.functional import convert_image_dtype
 from torchvision.utils import make_grid
 from torchvision.io import read_image
@@ -32,18 +32,8 @@ def show(imgs):
 
 def main():
 
-    test_set_dir = './dataset'
-
-    img_path = os.path.join(test_set_dir, "115732.jpg")
-
-    test_img = read_image(path=img_path,mode=ImageReadMode.RGB)
-
-
-    test_set_list = [test_img]
-
-
-    grid = make_grid(test_set_list)
-    show(grid)
+    test_set_dir = './dataset/Plant_Phenotyping_Datasets/Plant_Phenotyping_Datasets/Stacks/Ara2013-Canon/stack_08'
+    test_set_images = os.path.join(test_set_dir,'images')
 
     weights = LRASPP_MobileNet_V3_Large_Weights.DEFAULT
     preprocess = weights.transforms()
@@ -62,17 +52,26 @@ def main():
     model.eval()
     model.to(device)
  
-    # Step 3: Apply inference preprocessing transforms
-    batch = preprocess(test_img).unsqueeze(0)
+    for file in os.scandir(test_set_images):
+        print(file.name)
+        img_path = os.path.join(test_set_images, file.name)
+        test_img = read_image(path=img_path,mode=ImageReadMode.RGB)
 
-    batch = batch.to(device)
-    # Step 4: Use the model and visualize the prediction
-    prediction = model(batch)["out"]
-    normalized_masks = prediction.softmax(dim=1)
-    #class_to_idx = {cls: idx for (idx, cls) in enumerate(weights.meta["categories"])}
-    #classes = [background, plant]
-    mask = normalized_masks[0, 1]
-    show(mask)
+        batch = preprocess(test_img).unsqueeze(0)
+
+        batch = batch.to(device)
+        # Step 4: Use the model and visualize the prediction
+        prediction = model(batch)["out"]
+        normalized_masks = prediction.softmax(dim=1)
+        #class_to_idx = {cls: idx for (idx, cls) in enumerate(weights.meta["categories"])}
+        #classes = [background, plant]
+        mask = normalized_masks[0, 1]
+        print(mask.type)
+        outfile =  os.path.join(test_set_dir, 'predictions','masked-' +file.name)
+        print(outfile)
+        save_image(mask, outfile)
+
+    #show(mask)
     bool_mask = mask.to(dtype=torch.bool)
     print('bool mask shape',bool_mask.shape)
     print('img shape',test_img.size())
@@ -86,7 +85,7 @@ def main():
         draw_segmentation_masks(img, masks=mask, alpha=1)
         for img, mask in zip(resized_test_images, masks)
     ]
-    show(masked_imgs)                                
+    #show(masked_imgs)                                
 
 if __name__ == "__main__":
     #args = get_args_parser().parse_args()
