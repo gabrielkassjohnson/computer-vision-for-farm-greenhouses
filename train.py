@@ -70,7 +70,7 @@ def evaluate(model, data_loader, device, num_classes):
     header = "Test:"
     num_processed_samples = 0
     with torch.inference_mode():
-        for image, target in metric_logger.log_every(data_loader, 100, header):
+        for image, target in metric_logger.log_every(data_loader, 2, header):
             image, target = image.to(device), target.to(device)
             output = model(image)
             output = output["out"]
@@ -141,9 +141,9 @@ def main(args):
 
 
 
-    dataset_train, num_classes = get_dataset('./dataset', args.dataset, "train", get_transform(True, args))
+    dataset_train, num_classes = get_dataset(args.data_path, args.dataset, "train", get_transform(True, args))
 
-    dataset_val, _ = get_dataset('./dataset', args.dataset, "val", get_transform(False, args))
+    dataset_val, _ = get_dataset(args.data_path, args.dataset, "val", get_transform(False, args))
 
     train_indices, val_indices = train_test_split(np.arange(len(dataset_train)),test_size=0.2)
     print(train_indices,'train indices')
@@ -153,7 +153,7 @@ def main(args):
     dataset_val = torch.utils.data.Subset(dataset_val, val_indices)
     
     
-    dataset_test, _ = get_dataset('./dataset', args.dataset, "val", get_transform(False, args))
+    dataset_test, _ = get_dataset(args.data_path, args.dataset, "val", get_transform(False, args))
 
     
     concat_dataset = torch.utils.data.ConcatDataset([dataset_train])
@@ -189,7 +189,7 @@ def main(args):
         weights=args.weights, weights_backbone=args.weights_backbone, num_classes=num_classes, aux_loss=args.aux_loss
     )
     
-    print(model)
+    #print(model)
 
     model.to(device)
     if args.distributed:
@@ -284,7 +284,7 @@ def get_args_parser(add_help=True):
 
     parser = argparse.ArgumentParser(description="PyTorch Segmentation Training", add_help=add_help)
 
-    parser.add_argument("--data-path", default="./dataset", type=str, help="dataset path")
+    parser.add_argument("--data-path", default="./dataset/Plant_Phenotyping_Datasets/Plant_Phenotyping_Datasets/Plant/Ara2012", type=str, help="dataset path")
     parser.add_argument("--dataset", default="PlantNet", type=str, help="dataset name")
     parser.add_argument("--model", default="lraspp_mobilenet_v3_large", type=str, help="model name")
     parser.add_argument("--aux-loss", action="store_true", help="auxiliar loss")
@@ -292,7 +292,7 @@ def get_args_parser(add_help=True):
     parser.add_argument(
         "-b", "--batch-size", default=1, type=int, help="images per gpu, the total batch size is $NGPU x batch_size"
     )
-    parser.add_argument("--epochs", default=12, type=int, metavar="N", help="number of total epochs to run")
+    parser.add_argument("--epochs", default=20, type=int, metavar="N", help="number of total epochs to run")
 
     parser.add_argument(
         "-j", "--workers", default=4, type=int, metavar="N", help="number of data loading workers (default: 16)"
