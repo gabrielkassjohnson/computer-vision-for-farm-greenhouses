@@ -67,7 +67,7 @@ def main():
         #classes = [background, plant]
         mask = normalized_masks[0, 1]
         print(mask.type)
-        outfile =  os.path.join(test_set_dir, 'predictions','masked-' +file.name)
+        outfile =  os.path.join(test_set_dir, 'predictions',file.name)
         print(outfile)
         save_image(mask, outfile)
 
