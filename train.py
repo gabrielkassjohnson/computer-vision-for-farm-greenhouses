@@ -12,6 +12,8 @@ from coco_utils import get_coco
 from torch import nn
 from torchvision.transforms import functional as F, InterpolationMode
 from dataset import PlantNetDataset
+import numpy as np
+from sklearn.model_selection import train_test_split
 
 def get_dataset(dir_path, name, image_set, transform):
     def sbd(*args, **kwargs):
@@ -137,29 +139,34 @@ def main(args):
     else:
         torch.backends.cudnn.benchmark = True
 
-    '''
-    train_dataset = MyDataset(train_transform)
-    val_dataset = MyDataset(val_transform)
-    train_indices, val_indices = sklearn.model_selection.train_test_split(indices)
-    train_dataset = torch.utils.data.Subset(train_dataset, train_indices)
-    val_dataset = torch.utils.data.Subset(train_dataset, val_indices)
-    '''
-    dataset, num_classes = get_dataset('./dataset/train', args.dataset, "train", get_transform(True, args))
 
-    dataset_train, dataset_test = torch.utils.data.random_split(full_dataset.dataset, [train_size, test_size])
-    dataset_test, _ = get_dataset('./dataset/train', args.dataset, "val", get_transform(False, args))
+
+    dataset_train, num_classes = get_dataset('./dataset', args.dataset, "train", get_transform(True, args))
+
+    dataset_val, _ = get_dataset('./dataset', args.dataset, "val", get_transform(False, args))
+
+    train_indices, val_indices = train_test_split(np.arange(len(dataset_train)),test_size=0.2)
+    print(train_indices,'train indices')
+    print(val_indices,'val indices')
+    
+    dataset_train = torch.utils.data.Subset(dataset_train, train_indices)
+    dataset_val = torch.utils.data.Subset(dataset_val, val_indices)
+    
+    
+    dataset_test, _ = get_dataset('./dataset', args.dataset, "val", get_transform(False, args))
 
     
-    concat_dataset = torch.utils.data.ConcatDataset([dataset])
+    concat_dataset = torch.utils.data.ConcatDataset([dataset_train])
+    concat_dataset_val = torch.utils.data.ConcatDataset([dataset_val])
     concat_dataset_test = torch.utils.data.ConcatDataset([dataset_test])
 
     print(concat_dataset)
     if args.distributed:
         train_sampler = torch.utils.data.distributed.DistributedSampler(concat_dataset)
-        test_sampler = torch.utils.data.distributed.DistributedSampler(concat_dataset_test, shuffle=False)
+        test_sampler = torch.utils.data.distributed.DistributedSampler(concat_dataset_val, shuffle=False)
     else:
         train_sampler = torch.utils.data.RandomSampler(concat_dataset)
-        test_sampler = torch.utils.data.SequentialSampler(concat_dataset_test)
+        test_sampler = torch.utils.data.SequentialSampler(concat_dataset_val)
 
     data_loader = torch.utils.data.DataLoader(
         concat_dataset,
@@ -170,6 +177,10 @@ def main(args):
         drop_last=True,
     )
 
+    data_loader_val = torch.utils.data.DataLoader(
+        concat_dataset_val, batch_size=1, sampler=test_sampler, num_workers=args.workers, collate_fn=utils.collate_fn
+    )
+    
     data_loader_test = torch.utils.data.DataLoader(
         concat_dataset_test, batch_size=1, sampler=test_sampler, num_workers=args.workers, collate_fn=utils.collate_fn
     )
@@ -249,7 +260,7 @@ def main(args):
         if args.distributed:
             train_sampler.set_epoch(epoch)
         train_one_epoch(model, criterion, optimizer, data_loader, lr_scheduler, device, epoch, args.print_freq, scaler)
-        confmat = evaluate(model, data_loader_test, device=device, num_classes=num_classes)
+        confmat = evaluate(model, data_loader_val, device=device, num_classes=num_classes)
         print(confmat)
         checkpoint = {
             "model": model_without_ddp.state_dict(),
@@ -273,7 +284,7 @@ def get_args_parser(add_help=True):
 
     parser = argparse.ArgumentParser(description="PyTorch Segmentation Training", add_help=add_help)
 
-    parser.add_argument("--data-path", default="./dataset/train", type=str, help="dataset path")
+    parser.add_argument("--data-path", default="./dataset", type=str, help="dataset path")
     parser.add_argument("--dataset", default="PlantNet", type=str, help="dataset name")
     parser.add_argument("--model", default="lraspp_mobilenet_v3_large", type=str, help="model name")
     parser.add_argument("--aux-loss", action="store_true", help="auxiliar loss")
@@ -281,7 +292,7 @@ def get_args_parser(add_help=True):
     parser.add_argument(
         "-b", "--batch-size", default=1, type=int, help="images per gpu, the total batch size is $NGPU x batch_size"
     )
-    parser.add_argument("--epochs", default=11, type=int, metavar="N", help="number of total epochs to run")
+    parser.add_argument("--epochs", default=12, type=int, metavar="N", help="number of total epochs to run")
 
     parser.add_argument(
         "-j", "--workers", default=4, type=int, metavar="N", help="number of data loading workers (default: 16)"
