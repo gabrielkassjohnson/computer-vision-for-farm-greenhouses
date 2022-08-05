@@ -11,4 +11,4 @@ in contrast to laboratory settings.
 So to generalize for field conditions, we train on multiple collated datasets with an eye towards appropriate visual transforms
 that can improve predictive outcomes even further.
 
-<img source = 'test.gif'/>
+<img  src="test.gif" />
