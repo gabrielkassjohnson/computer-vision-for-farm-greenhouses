@@ -11,20 +11,26 @@ import utils
 from coco_utils import get_coco
 from torch import nn
 from torchvision.transforms import functional as F, InterpolationMode
-
+from dataset import PlantNetDataset
+import numpy as np
+from sklearn.model_selection import train_test_split
 
 def get_dataset(dir_path, name, image_set, transform):
     def sbd(*args, **kwargs):
         return torchvision.datasets.SBDataset(*args, mode="segmentation", **kwargs)
-
+    def get_custom_dataset(*args, **kwargs):
+        return PlantNetDataset(*args, **kwargs)
+    
+    
     paths = {
         "voc": (dir_path, torchvision.datasets.VOCSegmentation, 21),
         "voc_aug": (dir_path, sbd, 21),
         "coco": (dir_path, get_coco, 21),
+        "PlantNet": (dir_path, get_custom_dataset, 2),
     }
     p, ds_fn, num_classes = paths[name]
 
-    ds = ds_fn(p, image_set=image_set,transforms=transform, year='2012')
+    ds = ds_fn(p,transforms=transform)
     return ds, num_classes
 
 
@@ -64,7 +70,7 @@ def evaluate(model, data_loader, device, num_classes):
     header = "Test:"
     num_processed_samples = 0
     with torch.inference_mode():
-        for image, target in metric_logger.log_every(data_loader, 100, header):
+        for image, target in metric_logger.log_every(data_loader, 2, header):
             image, target = image.to(device), target.to(device)
             output = model(image)
             output = output["out"]
@@ -133,18 +139,46 @@ def main(args):
     else:
         torch.backends.cudnn.benchmark = True
 
-    dataset, num_classes = get_dataset(args.data_path, args.dataset, "train", get_transform(True, args))
-    dataset_test, _ = get_dataset(args.data_path, args.dataset, "val", get_transform(False, args))
+    
+    dataset_train_list = []
+    dataset_val_list = []
+    
+    lsc_2017_path = 'CVPPP2017_LSC_training/CVPPP2017_LSC_training/training'
+    folder_list = ['A1','A2','A3','A4']
+    for folder_name in folder_list:
 
+        dataset_train, num_classes = get_dataset(os.path.join(args.data_path,lsc_2017_path, folder_name), args.dataset, "train", get_transform(True, args))
+
+        dataset_val, _ = get_dataset(os.path.join(args.data_path,lsc_2017_path, folder_name), args.dataset, "val", get_transform(False, args))
+
+        train_indices, val_indices = train_test_split(np.arange(len(dataset_train)),test_size=0.2)
+        print(train_indices,'train indices')
+        print(val_indices,'val indices')
+        
+        dataset_train = torch.utils.data.Subset(dataset_train, train_indices)
+        dataset_val = torch.utils.data.Subset(dataset_val, val_indices)
+        
+        dataset_train_list.append(dataset_train)
+        dataset_val_list.append(dataset_val)
+    
+    dataset_test, _ = get_dataset(os.path.join(args.data_path,lsc_2017_path, 'A3'), args.dataset, "val", get_transform(False, args))
+    dataset_test_list = [dataset_test]
+
+    
+    concat_dataset = torch.utils.data.ConcatDataset(dataset_train_list)
+    concat_dataset_val = torch.utils.data.ConcatDataset(dataset_val_list)
+    concat_dataset_test = torch.utils.data.ConcatDataset(dataset_test_list)
+
+    print(concat_dataset)
     if args.distributed:
-        train_sampler = torch.utils.data.distributed.DistributedSampler(dataset)
-        test_sampler = torch.utils.data.distributed.DistributedSampler(dataset_test, shuffle=False)
+        train_sampler = torch.utils.data.distributed.DistributedSampler(concat_dataset)
+        test_sampler = torch.utils.data.distributed.DistributedSampler(concat_dataset_val, shuffle=False)
     else:
-        train_sampler = torch.utils.data.RandomSampler(dataset)
-        test_sampler = torch.utils.data.SequentialSampler(dataset_test)
+        train_sampler = torch.utils.data.RandomSampler(concat_dataset)
+        test_sampler = torch.utils.data.SequentialSampler(concat_dataset_val)
 
     data_loader = torch.utils.data.DataLoader(
-        dataset,
+        concat_dataset,
         batch_size=args.batch_size,
         sampler=train_sampler,
         num_workers=args.workers,
@@ -152,15 +186,19 @@ def main(args):
         drop_last=True,
     )
 
+    data_loader_val = torch.utils.data.DataLoader(
+        concat_dataset_val, batch_size=1, sampler=test_sampler, num_workers=args.workers, collate_fn=utils.collate_fn
+    )
+    
     data_loader_test = torch.utils.data.DataLoader(
-        dataset_test, batch_size=1, sampler=test_sampler, num_workers=args.workers, collate_fn=utils.collate_fn
+        concat_dataset_test, batch_size=1, sampler=test_sampler, num_workers=args.workers, collate_fn=utils.collate_fn
     )
 
     model = torchvision.models.segmentation.__dict__[args.model](
         weights=args.weights, weights_backbone=args.weights_backbone, num_classes=num_classes, aux_loss=args.aux_loss
     )
     
-    print(model)
+    #print(model)
 
     model.to(device)
     if args.distributed:
@@ -231,7 +269,7 @@ def main(args):
         if args.distributed:
             train_sampler.set_epoch(epoch)
         train_one_epoch(model, criterion, optimizer, data_loader, lr_scheduler, device, epoch, args.print_freq, scaler)
-        confmat = evaluate(model, data_loader_test, device=device, num_classes=num_classes)
+        confmat = evaluate(model, data_loader_val, device=device, num_classes=num_classes)
         print(confmat)
         checkpoint = {
             "model": model_without_ddp.state_dict(),
@@ -255,18 +293,18 @@ def get_args_parser(add_help=True):
 
     parser = argparse.ArgumentParser(description="PyTorch Segmentation Training", add_help=add_help)
 
-    parser.add_argument("--data-path", default=".", type=str, help="dataset path")
-    parser.add_argument("--dataset", default="voc", type=str, help="dataset name")
-    parser.add_argument("--model", default="fcn_resnet101", type=str, help="model name")
+    parser.add_argument("--data-path", default="./dataset", type=str, help="dataset path")
+    parser.add_argument("--dataset", default="PlantNet", type=str, help="dataset name")
+    parser.add_argument("--model", default="lraspp_mobilenet_v3_large", type=str, help="model name")
     parser.add_argument("--aux-loss", action="store_true", help="auxiliar loss")
     parser.add_argument("--device", default="cuda", type=str, help="device (Use cuda or cpu Default: cuda)")
     parser.add_argument(
-        "-b", "--batch-size", default=2, type=int, help="images per gpu, the total batch size is $NGPU x batch_size"
+        "-b", "--batch-size", default=1, type=int, help="images per gpu, the total batch size is $NGPU x batch_size"
     )
-    parser.add_argument("--epochs", default=10, type=int, metavar="N", help="number of total epochs to run")
+    parser.add_argument("--epochs", default=2, type=int, metavar="N", help="number of total epochs to run")
 
     parser.add_argument(
-        "-j", "--workers", default=4, type=int, metavar="N", help="number of data loading workers (default: 16)"
+        "-j", "--workers", default=1, type=int, metavar="N", help="number of data loading workers (default: 16)"
     )
     parser.add_argument("--lr", default=0.01, type=float, help="initial learning rate")
     parser.add_argument("--momentum", default=0.9, type=float, metavar="M", help="momentum")
@@ -282,7 +320,7 @@ def get_args_parser(add_help=True):
     parser.add_argument("--lr-warmup-epochs", default=0, type=int, help="the number of epochs to warmup (default: 0)")
     parser.add_argument("--lr-warmup-method", default="linear", type=str, help="the warmup method (default: linear)")
     parser.add_argument("--lr-warmup-decay", default=0.01, type=float, help="the decay for lr")
-    parser.add_argument("--print-freq", default=10, type=int, help="print frequency")
+    parser.add_argument("--print-freq", default=2, type=int, help="print frequency")
     parser.add_argument("--output-dir", default=".", type=str, help="path to save outputs")
     parser.add_argument("--resume", default="", type=str, help="path of checkpoint")
     parser.add_argument("--start-epoch", default=0, type=int, metavar="N", help="start epoch")
@@ -300,7 +338,7 @@ def get_args_parser(add_help=True):
     parser.add_argument("--dist-url", default="env://", type=str, help="url used to set up distributed training")
 
     parser.add_argument("--weights", default=None, type=str, help="the weights enum name to load")
-    parser.add_argument("--weights-backbone", default=None, type=str, help="the backbone weights enum name to load")
+    parser.add_argument("--weights-backbone", default='LRASPP_MobileNet_V3_Large_Weights.IMAGENET1K_V1', type=str, help="the backbone weights enum name to load")
 
     # Mixed precision training parameters
     parser.add_argument("--amp", action="store_true", help="Use torch.cuda.amp for mixed precision training")
