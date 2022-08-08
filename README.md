@@ -60,3 +60,19 @@ The only way is to learn from history, and to take it’s lessons seriously. All
 It means including them in the new technology, and the riches it creates. It also means actively protecting them from known historical abuses of similar technology. We are witnessing in the early 2020’s an explosion of worker monitoring technologies, visible in examples like delivery drivers, and factory workers, who are subject to increasingly detailed levels of observation. At a certain point, people simply do not want to be surveilled, including at work. When you talk to people about it, they mostly find it distasteful and insulting, as though they're not trusted, when they know full well that the success of the company is literally in their hands every day. Workers are principled, and showing them respect for common human dignity will get you most of the way there in creating buy-in from employees. Employees want to be included in future growth, and contribute to it, just not at the expense of their choices about work lifestyle. Surely, the pandemic has only accelerated the willingness of workers to demand safe and proper conditions of employment.  
 
 In agricultural data science, this means assuring workers that new technologies are not meant to monitor and judge their work, but to give them information and tools that help them do their jobs better. It means including workers in training, and even early in the design process. Most of all it means communicating with people, and demonstrating to them that technologies will never be able to replace trust between people, and every organization needs trust to function. The tech can help us work better, but it can’t replace what farms need to survive, which is the attention of people who really care. In our drive to develop new technologies on the farm, putting people first can never come second.
+
+# References
+
+[1] Pound, Michael P., Jonathan A. Atkinson, Alexandra J. Townsend, Michael H. Wilson, Marcus Griffiths, Aaron S. Jackson, Adrian Bulat, Georgios Tzimiropoulos, Darren M. Wells, Erik Harry Murchie, Tony P. Pridmore and Andrew P. French. “Deep machine learning provides state-of-the-art performance in image-based plant phenotyping.” GigaScience 6 (2016): 1 - 10.
+
+[2] Koh, Joshua C. O., German C. Spangenberg and Surya Kant. “Automated Machine Learning for High-Throughput Image-Based Plant Phenotyping.” bioRxiv (2020): n. pag.
+
+[3] Prat, Javier Ribera. “Image-based Plant Phenotyping Using Machine Learning.” (2019).
+
+[4] Mochida, Keiichi, Satoru Koda, Komaki Inoue, Takashi Hirayama, Shojiro Tanaka, Ryuei Nishii and Farid Melgani. “Computer vision-based phenotyping for improvement of plant productivity: a machine learning perspective.” GigaScience 8 (2019): n. pag.
+
+[5] Adak, Alper, Seth C. Murray, Sofija Božinović, Regan Lindsey, Shakirah Nakasagga, Sumantra Chatterjee, Steven L. Anderson and Scott C. Wilde. “Temporal Vegetation Indices and Plant Height from Remotely Sensed Imagery Can Predict Grain Yield and Flowering Time Breeding Value in Maize via Machine Learning Regression.” Remote. Sens. 13 (2021): 2141.
+
+[6] Yoosefzadeh-Najafabadi, Mohsen, Hugh James Earl, Dan C. Tulpan, John J. Sulik and Milad Eskandari. “Application of Machine Learning Algorithms in Plant Breeding: Predicting Yield From Hyperspectral Reflectance in Soybean.” Frontiers in Plant Science 11 (2020): n. pag.
+
+[7] Jiang, Yu and Changying Li. “Convolutional Neural Networks for Image-Based High-Throughput Plant Phenotyping: A Review.” Plant Phenomics 2020 (2020): n. pag.
