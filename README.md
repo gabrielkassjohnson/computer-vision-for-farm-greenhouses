@@ -1,4 +1,4 @@
-##Plant Vision
+## Plant Vision
 
 Fine-tuning a semantic segmentation neural net on plant phenotyping datasets,
 collated from botany laboratories around the world.
@@ -13,7 +13,40 @@ that can improve predictive outcomes even further.
 
 <img  src="test.gif" />
 
-Predicting crop yields and harvest dates with computer vision
+# lowering-the-cost-of-farm-research-cameras
+
+
+<p>Convincing farmers to adopt new technology, like analytics dashboards and on-farm cameras and sensors, is challenging for a number of reasons, and adds additional complexity to the task of designing the systems themselves. Hardware purpose built for laboratory environments will not withstand the harsh rigors of service in the field, even inside protected structures like greenhouses. Cameras, sensors and other hardware need to be ruggedized against heat and cold, weather, and worst of all, moisture, which short circuits electronics, clouds lenses, and generally wreaks havoc. Hardware in the field also needs to contend with varying conditions, that is, an uncontrolled environment. Light levels vary hugely in the outdoors, even from minute to minute. The biological eye has an enormous dynamic range of many orders of magnitude, which current cameras cannot hope to achieve. Therefore, working within limitations becomes a necessity, and as in the arts, can lead to novel and useful innovations. The most persistent pressure of deploying hardware on farms is cost. Farmers are willing to adopt new technology, and can see the benefits of emerging technologies, but farms are low profit-margin ventures, and farm owners must be strictly frugal in their capital investments in order to stay in the black.</p>
+<p>	The benefits of stationary cameras distinguish them from more expensive options. Even inexpensive security cams available on large retailing websites start at around $50 and that doesn’t necessarily include all the needed compute power, programmability, and connectivity desired of an on-farm camera system. Lowering the cost, while maintaining rugged resistance to dust and water is the prime goal. Inspiration for the project comes from many places, including all the creative makers and tinkerers from around the world who share their knowledge online, and especially from the work of other plant computer vision researchers, who do the hard work of building these systems from the ground up.</p>
+<p>In their paper on raspberry pi cameras used for plant phenotyping, the Danforth lab in St Louis has significantly reduced the cost of manufacturing a workable plant capture camera. Besides the obvious uses and benefits to research, this platform serves as a good starting point for developing an even lower cost camera that can be deployed commercially, and has the potential to add tremendous value to farms, with the extensive analytics that they will eventually enable. Of course, these analytics, and the foundational algorithms that underlie them, are the interesting part of agricultural data science, but progress on the algorithms has quickly outpaced progress on data capture. The algorithms are essentially ready for deployment on a large scale around the world, but companies that offer services to collect data from farms reliably are only beginning to appear and thrive. Drone photography will likely be the most impactful modality of on-farm photography. But other modalities will have roles to play, based on the particular needs of the farm. Huge acreages will certainly come to rely even more heavily on satellite data, and ‘precision agriculture’, than they already have. But these sorts of analytics are not available to managers of small and medium sized farms. Small farms in particular have difficult hurdles to deployment, simply making the value proposition good enough is a challenge. Therefore, farm cv technologies are going to be rather specialized as they begin to gain traction in the marketplace.</p>
+<p>Drone photography is well suited to medium sized tractor farms, for example, a farm growing 5-15 acres of potatoes. Drones, or a single drone on a daily schedule, can survey this area easily, and relay this information to a server, where the analytics are performed, and served to the client normally via a web interface and or a smartphone app. For small mixed operations, like a 2 acre CSA with 40 varieties of plants, drone photography offers less of an obvious value proposition, because 2 acres is an area easily managed on foot by one farmer and a few helpers, and the complexity of a mixed field is difficult to suss out for the existing algorithms. Illustrative of this is the response I received from one old-time farmer with a small cattle operation upon hearing my description the uses of farm computer vision; he said “Our eyes seem to work good enough for all of that, and we can see the whole farm from here anyway.” It’s a valid point. Farmers have an incredibly well attuned sense of what is happening on their farms, on a day to day basis, and sometimes even hour to hour. Seedlings may look droopy in the late afternoon of a hot day, but if the soil is moist enough and the night is going to cool down, it’s not a cause for concern. But drooping without those constraints present may be an indicator of plant stress. Farmers can see an amazing amount, but they can’t see everything, and they certainly don’t have any extra time. The promise of year round camera monitoring of farms is hard to predict, but examples are emerging that show the power of algorithmic systems to alert farmers to issues on their farms, and eventually advise them on possible solutions. Algorithmic data science, when it matures, will be a little similar to the invention of the movie camera, or even the microscope; it simply allows people to see what they could never have seen before: a horse with all four feet in the air mid gallop, or  living creatures so small that they can’t be seen with the naked eye. Augmenting the naked eye with data science means that we can see patterns of such subtlety and interconnectedness that it will seem as though we've turned a microscope onto the world. Properly trained neural nets, along with lots of data cleaning, and other time saving methods, has the potential to reveal previously unknown correlations in nearly any kind of data.</p>
+<p>	For farms, this means insight into the growth rates of various crops, in various locations around the farm. It means cost-free predictions of crop yield, and projections of crop yields for a few weeks into the future. It means optimization methods for helping farmers to decide between complex options, like, should you harvest tomorrow at 85% maturity and sell at $1.59/lb or wait one week and sell the crop at 95% maturity, but for $1.49/lb? It’s really not an easy math problem, and farmers don’t have time to spend on this. Intuition for pricing can get you some of the way there, but it’s too complicated an equation to leave to chance. With small margins, farms need to be smart about pricing, and that includes taking into account market timing, and plant health, labor availability, and inclement weather, to name only a few important factors. To a data scientist, this is a well formulated optimization problem, with constraints.</p>
+<p>	Automating these decisions for farms, given that the data is available, and possible to analyze, can result in recommender systems and analytics with great power and usefulness in the real world. As an industry, agricultural data science is at the beginning of a rapid growth curve. The potential is huge, but there’s a long way to go. Plants and animals on farms are one of our greatest resources, they mostly take care of themselves, and that is why farms are possible in the first place. But there’s much more we could be doing to help them along, and it start with helping farmers see and document the intricate relationships in their operations. Once they can see the detail, they’ll know what to do, and once a good system is trained on a task, that knowledge can spread through the world for free, and help farmers everywhere, if they can afford the tech. Eventually, the algorithms will be as good as free (at least the non-cutting-edge ones), but the hardware always has a linear growth in cost: deploying 2000 sensors is going to cost roughly twice as much as deploying 1000. But running algorithms is a lot cheaper than that, and can grow as big as you want while remaining cheap. So the challenge becomes, how do you convince farmers to spend money on hardware? Make it cheap, make it reliable in poor conditions, and demonstrate it’s usefulness with simple examples.</p>
+
+# References
+
+[1] Gehan, Malia A., N. Fahlgren, Arash Abbasi, Jeffrey C. Berry, Steven T. Callen, Leonardo Chavez, Andrew N. Doust, Max J. Feldman, Kerrigan B. Gilbert, John G. Hodge, J. Steen Hoyer, Andy Lin, Suxing Liu, Cesar Lizarraga, Argelia Lorence, Michael Miller, Eric Platon, Monica Tessman and Tony Sax. “PlantCV v2: Image analysis software for high-throughput plant phenotyping.” PeerJ 5 (2017): n. pag.
+
+[2] Tovar, Jose C., J. Steen Hoyer, Andy Lin, Allison Tielking, Steven T. Callen, S Elizabeth Castillo, Michael Miller, Monica Tessman, N. Fahlgren, James C. Carrington, Dmitri A. Nusinow and Malia A. Gehan. “Raspberry Pi–powered imaging for plant phenotyping.” Applications in Plant Sciences 6 (2018): n. pag.
+
+[3] Fahlgren, N., Malia A. Gehan and Ivan R. Baxter. “Lights, camera, action: high-throughput plant phenotyping is ready for a close-up.” Current opinion in plant biology 24 (2015): 93-9 .
+
+[4] Mirnezami, Seyed Vahid. “Application of deep learning and machine learning workflows for field-scale phenotyping.” (2020).
+
+[5] Falk, Kevin G, Talukder Zaki Jubery, Seyed Vahid Mirnezami, Kyle A. Parmley, Soumik Sarkar, Arti Singh, Baskar Ganapathysubramanian and Asheesh K Singh. “Computer vision and machine learning enabled soybean root phenotyping pipeline.” Plant Methods 16 (2020): n. pag.
+
+[6]Zheng, Caiwang, Amr H. Abd-Elrahman and Vance M. Whitaker. “Remote Sensing and Machine Learning in Crop Phenotyping and Management, with an Emphasis on Applications in Strawberry Farming.” Remote. Sens. 13 (2021): 531.
+
+[7] Shakoor, Nadia and Todd C. Mockler. “Wireless Fixed Camera Network for Greenhouse-Based Plant Phenotyping.” Methods in molecular biology 2539 (2022): 49-56 .
+
+[8] Lee, Unseok, Sungyul Chang, Gian Anantrio Putra, Hyoungseok Kim and Dong Hwan Kim. “An automated, high-throughput plant phenotyping system using machine learning-based plant segmentation and image analysis.” PLoS ONE 13 (2018): n. pag.
+
+[9] Abbasi, Arash and N. Fahlgren. “Naïve Bayes pixel-level plant segmentation.” 2016 IEEE Western New York Image and Signal Processing Workshop (WNYISPW) (2016): 1-4.
+
+
+
+
+## Predicting crop yields and harvest dates with computer vision
 
 One of the primary difficulties of farming is the correct timing of harvest. This is a critical decision that arises from a combination of factors taken into account by the farmer. They observe their fields or greenhouses, they see the plants growing consecutively for weeks or months, and they assess whether the plant is ready for harvest, or near to ready. A few main factors dominate however, getting the most yield (or value) is typically the goal, while minimizing expenditures (of materials, or time). Other limiting factors exist in farming; getting ahead of an arbitrary weather event is sometimes necessary, by harvesting early (sub-optimally in a normal circumstance) before a storm, or harvesting early before a heat wave,which might kill the plant. Better to harvest at 90% maturity rather than risk losing the whole crop.
 
@@ -27,7 +60,7 @@ There’s an old adage in agriculture that says “The best fertilizer is the fa
 
 A properly intelligent computer vision system for understanding plant growth will be similar in nature and impact to a microscope or a stop motion photography, which can capture still images of a horse mid-stride, a resolution of information that the human eye and brain cannot necessarily muster. Having a camera permanently trained on a growing plant will allow an algorithm to perceive all kinds of detailed information about the plant, information that a human may never perceive. For instance, analyzing the frequencies and amplitudes of a plant’s motion as it sways around during the day, tracking the sun, imperceptible to a human, may reveal information about the health of the plant. Another example, comparing data over time on the color composition of the leaves will almost certainly be an excellent feature to predict the early onset of crop diseases. I am confident saying this because this is how most farmers around the world assess their plant health, by looking at the color. A plant that is too yellow is not a healthy plant. Now, how accurately can a farmer assess color? A computer vision algorithm can detect changes in color far more subtle than a person. So it stands to reason that a predictive algorithm for plant health could be trained on data features related to leaf color.
 
-Feature engineering for Optimizing harvest timing
+## Feature engineering for Optimizing harvest timing
 There are three main factors in optimizing harvest timing from a farmers perspective. The importance of this crucial timing decision arises from its large impact on farm profitability; harvesting too late or too early can ruin sales for that harvest, by either selling at too low a price, or too low a harvest weight. So the factors that farmers consider are:
 current market price and expected market price over a few weeks or months
 harvest yield, usually measured by mass, sometimes by count
@@ -42,8 +75,37 @@ I contend that measuring the rate of change of harvestable yield with computer v
 
 Put in simple English: Allow the crop to grow as long as possible, assuming optimal inputs, until harvest is compelled by either storm or drought, or market/labor readiness, or until the rate of growth slows to the point where the market price will decrease more in one unit of time than the crop will grow. If the market price is currently increasing, even a small decrease in harvest yield could be tolerated. This raises the issue of quality, however, which is intimately related to plant life cycle timing, yet another reason why timing harvest just prior to maturity is a critical decision. The determination is hard because it’s an online learning problem, the farmers only have access to the growth information up until now, not tomorrow, and there’s always a chance that the crop could grow more than expected by tomorrow. Determining when to stop an ongoing process is exceedingly difficult for people, and fundamentally requires calculus. This is why computer vision will excel at prediction crop readiness, assuming it can perceive sufficiently well, for a similar reason that it excels in radiology. The tiny perturbations in data are magnified by well designed ML algorithms, allowing us to see them, and make decisions with better information. Knowing when a crop is nearing maturity is a deceptively complex problem, but data science is going to have a role to play in these decisions, and the success of our future agricultural systems may hinge on it, as the environment becomes hotter and less predictable.
 
+## Semantic Segmentation Training
 
-Ethics and the future of agricultural data science:
+
+Training on multiple datasets increases the ability of the trained network to generalize.
+This is our goal in deploying networks into the field, resilience to odd conditions, and still giving sensible results.
+Field conditions on farms and inside greenhouses can be extreme, and also vary widely in short time spans.
+Light levels, moisture, temperature, and other pertinent characteristics of the growing environment are all uncontrolled,
+in contrast to laboratory settings.
+So to generalize for field conditions, we train on multiple collated datasets with an eye towards appropriate visual transforms
+that can improve predictive outcomes even further.
+
+
+## Tracking Invasive Worms with Machine Learning and Computer Vision
+<img src="./worms/test.gif" />
+New England has an invasive worm problem, disrupting ecosystems and causing economic damage.
+Several visual characteristics of these Pheretimoid earthworms suggest the possibility 
+of using computer vision to identify them.
+Their color is distinctive, and different from prefered populations of earthworms.
+If a training set with accurate contours can be created, a model could be trained to
+classify worm instances based on color.
+The body proportions are also distinctive, in general longer and less fat than locally adapted earthworms.
+The proportion of average pixel length to average pixel width could be useful in identifying them.
+The clitellum (the ring around the body) is very light in color, and farther towards the front of the worm.
+The average speed of the invasive worm is much higher than that of local earthworm populations in New England and the USA.
+This speed can be calculated from several frames of video, provided it is timestamped, and
+a length measurement card is visible in the image.
+An estimate of the speed of the worm in the above animation is roughly 2 inches/minute, rather slow, making this specimen not likely to be invasive.
+
+
+
+## Ethics and the future of agricultural data science:
 
 Every advance in technology presents humanity with a choice as to how it’s implemented, and offers some balance of benefits versus costs. Some technologies are a clear win-win, solar cells for example, they have no moving parts, are cheap to produce, and can generate electricity for decades as long as they're kept fairly clean. The value that solar cells add to humanity’s overall standard of living is incredibly high, and the externalities (the costs in mining, manufacturing, transport, etc) are almost certainly lower than the benefits they provide over time. The same argument is harder to make for burning fossil fuels, even though they contain an amazing amount of energy, the costs are appearing to grow as we take them into account more fulsomely. Making specialty plastics from oilstocks however is an efficient and necessary use of oil. Many indispensable plastics and rubbers used in medicine are made only from petroleum. Until an alternative is invented, we need those plastics to live, even though mining them has large costs. A knife can kill, but more commonly it feeds. All technology is a balance.
 
