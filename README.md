@@ -13,27 +13,6 @@
 <p>	For farms, this means insight into the growth rates of various crops, in various locations around the farm. It means cost-free predictions of crop yield, and projections of crop yields for a few weeks into the future. It means optimization methods for helping farmers to decide between complex options, like, should you harvest tomorrow at 85% maturity and sell at $1.59/lb or wait one week and sell the crop at 95% maturity, but for $1.49/lb? It’s really not an easy math problem, and farmers don’t have time to spend on this. Intuition for pricing can get you some of the way there, but it’s too complicated an equation to leave to chance. With small margins, farms need to be smart about pricing, and that includes taking into account market timing, and plant health, labor availability, and inclement weather, to name only a few important factors. To a data scientist, this is a well formulated optimization problem, with constraints.</p>
 <p>	Automating these decisions for farms, given that the data is available, and possible to analyze, can result in recommender systems and analytics with great power and usefulness in the real world. As an industry, agricultural data science is at the beginning of a rapid growth curve. The potential is huge, but there’s a long way to go. Plants and animals on farms are one of our greatest resources, they mostly take care of themselves, and that is why farms are possible in the first place. But there’s much more we could be doing to help them along, and it start with helping farmers see and document the intricate relationships in their operations. Once they can see the detail, they’ll know what to do, and once a good system is trained on a task, that knowledge can spread through the world for free, and help farmers everywhere, if they can afford the tech. Eventually, the algorithms will be as good as free (at least the non-cutting-edge ones), but the hardware always has a linear growth in cost: deploying 2000 sensors is going to cost roughly twice as much as deploying 1000. But running algorithms is a lot cheaper than that, and can grow as big as you want while remaining cheap. So the challenge becomes, how do you convince farmers to spend money on hardware? Make it cheap, make it reliable in poor conditions, and demonstrate it’s usefulness with simple examples.</p>
 
-# References
-
-[1] Gehan, Malia A., N. Fahlgren, Arash Abbasi, Jeffrey C. Berry, Steven T. Callen, Leonardo Chavez, Andrew N. Doust, Max J. Feldman, Kerrigan B. Gilbert, John G. Hodge, J. Steen Hoyer, Andy Lin, Suxing Liu, Cesar Lizarraga, Argelia Lorence, Michael Miller, Eric Platon, Monica Tessman and Tony Sax. “PlantCV v2: Image analysis software for high-throughput plant phenotyping.” PeerJ 5 (2017): n. pag.
-
-[2] Tovar, Jose C., J. Steen Hoyer, Andy Lin, Allison Tielking, Steven T. Callen, S Elizabeth Castillo, Michael Miller, Monica Tessman, N. Fahlgren, James C. Carrington, Dmitri A. Nusinow and Malia A. Gehan. “Raspberry Pi–powered imaging for plant phenotyping.” Applications in Plant Sciences 6 (2018): n. pag.
-
-[3] Fahlgren, N., Malia A. Gehan and Ivan R. Baxter. “Lights, camera, action: high-throughput plant phenotyping is ready for a close-up.” Current opinion in plant biology 24 (2015): 93-9 .
-
-[4] Mirnezami, Seyed Vahid. “Application of deep learning and machine learning workflows for field-scale phenotyping.” (2020).
-
-[5] Falk, Kevin G, Talukder Zaki Jubery, Seyed Vahid Mirnezami, Kyle A. Parmley, Soumik Sarkar, Arti Singh, Baskar Ganapathysubramanian and Asheesh K Singh. “Computer vision and machine learning enabled soybean root phenotyping pipeline.” Plant Methods 16 (2020): n. pag.
-
-[6]Zheng, Caiwang, Amr H. Abd-Elrahman and Vance M. Whitaker. “Remote Sensing and Machine Learning in Crop Phenotyping and Management, with an Emphasis on Applications in Strawberry Farming.” Remote. Sens. 13 (2021): 531.
-
-[7] Shakoor, Nadia and Todd C. Mockler. “Wireless Fixed Camera Network for Greenhouse-Based Plant Phenotyping.” Methods in molecular biology 2539 (2022): 49-56 .
-
-[8] Lee, Unseok, Sungyul Chang, Gian Anantrio Putra, Hyoungseok Kim and Dong Hwan Kim. “An automated, high-throughput plant phenotyping system using machine learning-based plant segmentation and image analysis.” PLoS ONE 13 (2018): n. pag.
-
-[9] Abbasi, Arash and N. Fahlgren. “Naïve Bayes pixel-level plant segmentation.” 2016 IEEE Western New York Image and Signal Processing Workshop (WNYISPW) (2016): 1-4.
-
-
 
 
 ## Predicting crop yields and harvest dates with computer vision
@@ -78,7 +57,7 @@ that can improve predictive outcomes even further.
 
 
 ## Tracking Invasive Worms with Machine Learning and Computer Vision
-<img src="./worms/test.gif" />
+<img src="./tracking-invasive-worms-with-cv/worms/test.gif" />
 New England has an invasive worm problem, disrupting ecosystems and causing economic damage.
 Several visual characteristics of these Pheretimoid earthworms suggest the possibility 
 of using computer vision to identify them.
@@ -114,6 +93,26 @@ It means including them in the new technology, and the riches it creates. It als
 In agricultural data science, this means assuring workers that new technologies are not meant to monitor and judge their work, but to give them information and tools that help them do their jobs better. It means including workers in training, and even early in the design process. Most of all it means communicating with people, and demonstrating to them that technologies will never be able to replace trust between people, and every organization needs trust to function. The tech can help us work better, but it can’t replace what farms need to survive, which is the attention of people who really care. In our drive to develop new technologies on the farm, putting people first can never come second.
 
 # References
+
+
+[1] Gehan, Malia A., N. Fahlgren, Arash Abbasi, Jeffrey C. Berry, Steven T. Callen, Leonardo Chavez, Andrew N. Doust, Max J. Feldman, Kerrigan B. Gilbert, John G. Hodge, J. Steen Hoyer, Andy Lin, Suxing Liu, Cesar Lizarraga, Argelia Lorence, Michael Miller, Eric Platon, Monica Tessman and Tony Sax. “PlantCV v2: Image analysis software for high-throughput plant phenotyping.” PeerJ 5 (2017): n. pag.
+
+[2] Tovar, Jose C., J. Steen Hoyer, Andy Lin, Allison Tielking, Steven T. Callen, S Elizabeth Castillo, Michael Miller, Monica Tessman, N. Fahlgren, James C. Carrington, Dmitri A. Nusinow and Malia A. Gehan. “Raspberry Pi–powered imaging for plant phenotyping.” Applications in Plant Sciences 6 (2018): n. pag.
+
+[3] Fahlgren, N., Malia A. Gehan and Ivan R. Baxter. “Lights, camera, action: high-throughput plant phenotyping is ready for a close-up.” Current opinion in plant biology 24 (2015): 93-9 .
+
+[4] Mirnezami, Seyed Vahid. “Application of deep learning and machine learning workflows for field-scale phenotyping.” (2020).
+
+[5] Falk, Kevin G, Talukder Zaki Jubery, Seyed Vahid Mirnezami, Kyle A. Parmley, Soumik Sarkar, Arti Singh, Baskar Ganapathysubramanian and Asheesh K Singh. “Computer vision and machine learning enabled soybean root phenotyping pipeline.” Plant Methods 16 (2020): n. pag.
+
+[6]Zheng, Caiwang, Amr H. Abd-Elrahman and Vance M. Whitaker. “Remote Sensing and Machine Learning in Crop Phenotyping and Management, with an Emphasis on Applications in Strawberry Farming.” Remote. Sens. 13 (2021): 531.
+
+[7] Shakoor, Nadia and Todd C. Mockler. “Wireless Fixed Camera Network for Greenhouse-Based Plant Phenotyping.” Methods in molecular biology 2539 (2022): 49-56 .
+
+[8] Lee, Unseok, Sungyul Chang, Gian Anantrio Putra, Hyoungseok Kim and Dong Hwan Kim. “An automated, high-throughput plant phenotyping system using machine learning-based plant segmentation and image analysis.” PLoS ONE 13 (2018): n. pag.
+
+[9] Abbasi, Arash and N. Fahlgren. “Naïve Bayes pixel-level plant segmentation.” 2016 IEEE Western New York Image and Signal Processing Workshop (WNYISPW) (2016): 1-4.
+
 
 [1] Pound, Michael P., Jonathan A. Atkinson, Alexandra J. Townsend, Michael H. Wilson, Marcus Griffiths, Aaron S. Jackson, Adrian Bulat, Georgios Tzimiropoulos, Darren M. Wells, Erik Harry Murchie, Tony P. Pridmore and Andrew P. French. “Deep machine learning provides state-of-the-art performance in image-based plant phenotyping.” GigaScience 6 (2016): 1 - 10.
 
