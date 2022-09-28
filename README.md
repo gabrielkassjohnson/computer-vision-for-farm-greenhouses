@@ -1,4 +1,4 @@
-## Plant Vision
+## Full Stack Computer Vision for Farm Greenhouses
 
 
 <img  src="test.gif" />
