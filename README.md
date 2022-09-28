@@ -3,6 +3,8 @@
 
 <img  src="test.gif" />
 
+Fig. 1. A test-set sequence of images withheld from training, and the resulting segmentation output of the neural network.
+
 ## Lowering the Cost of Farm Research Cameras
 
 
