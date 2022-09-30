@@ -7,7 +7,7 @@ Fig. 1. A test-set sequence of images withheld from training, and the resulting 
 
 ## Lowering the Cost of Farm Research Cameras
 
-<img  src="P1011632.JPG" />
+<img  src="images/P1011632.JPG" />
 
 
 
