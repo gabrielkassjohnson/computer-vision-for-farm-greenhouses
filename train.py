@@ -160,6 +160,8 @@ def main(args):
         
         dataset_train_list.append(dataset_train)
         dataset_val_list.append(dataset_val)
+
+        #add more datasets here for better training
     
     dataset_test, _ = get_dataset(os.path.join(args.data_path,lsc_2017_path, 'A3'), args.dataset, "val", get_transform(False, args))
     dataset_test_list = [dataset_test]
