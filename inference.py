@@ -33,10 +33,12 @@ def show(imgs):
 def main():
 
     test_set_dir = './dataset/Plant_Phenotyping_Datasets/Plant_Phenotyping_Datasets/Stacks/Ara2013-Canon/stack_08'
+
+    test_set_dir = 'dataset/test/spinach'
+
+
     test_set_images = os.path.join(test_set_dir,'images')
     
-    test_set_dir = './dataset/test'
-    test_set_images = os.path.join(test_set_dir,'spinach')
 
     weights = LRASPP_MobileNet_V3_Large_Weights.DEFAULT
     preprocess = weights.transforms()
