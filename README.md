@@ -4,7 +4,7 @@
 
 <img  src="images/P1011691.JPG" />
 Figure 1. The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and cable glands installed for wiring.
-<br/>
+&nbsp;
 
 
 <img  src="dataset/test/spinach/images/2022_05_29_07_09_34.png" />
