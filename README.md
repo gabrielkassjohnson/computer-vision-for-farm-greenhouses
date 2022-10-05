@@ -3,14 +3,14 @@
 ## Lowering the Cost of Farm Research Cameras
 
 <img  src="images/P1011691.JPG" />
-Figure 1. The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and cable glands installed for wiring.
+Figure 1. The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and cable glands installed for wiring.  
 
 
 <img  src="dataset/test/spinach/images/2022_05_29_07_09_34.png" />
-Figure 2. An example frame of collected data for spinach plants.
+Figure 2. An example frame of data collected of spinach plants.  
 
 
-Convincing farmers to adopt new technology, like analytics dashboards and on-farm cameras and sensors, is challenging for a number of reasons, and adds additional complexity to the task of designing the systems themselves. Hardware purpose built for laboratory environments will not withstand the harsh rigors of service in the field, even inside protected structures like greenhouses. Cameras, sensors and other hardware need to be ruggedized against heat and cold, weather, and worst of all, moisture, which short circuits electronics, clouds lenses, and generally wreaks havoc. Hardware in the field also needs to contend with varying conditions, that is, an uncontrolled environment. Light levels vary hugely in the outdoors, even from minute to minute. The biological eye has an enormous dynamic range of many orders of magnitude, which current cameras cannot hope to achieve. Therefore, working within limitations becomes a necessity, and as in the arts, can lead to novel and useful innovations. The most persistent pressure of deploying hardware on farms is cost. Farmers are willing to adopt new technology, and can see the benefits of emerging technologies, but farms are low profit-margin ventures, and farm owners must be strictly frugal in their capital investments in order to stay in the black.
+Convincing farmers to adopt new technology, like analytics dashboards and on-farm cameras and sensors, is challenging for a number of reasons, and adds additional complexity to the task of designing the systems themselves. Hardware purpose built for laboratory environments will not withstand the harsh rigors of service in the field, even inside protected structures like greenhouses. Cameras, sensors and other hardware need to be ruggedized against heat and cold, weather, and worst of all, moisture, which short circuits electronics, clouds lenses, and generally wreaks havoc. Hardware in the field also needs to contend with varying conditions, that is, an uncontrolled environment. Light levels vary hugely in the outdoors, even from minute to minute. The biological eye has an enormous dynamic range of many orders of magnitude, which current cameras cannot hope to achieve. Therefore, working within limitations becomes a necessity, and as in the arts, can lead to novel and useful innovations. The most persistent pressure of deploying hardware on farms is cost. Farmers are willing to adopt new technology, and can see the benefits of emerging technologies, but farms are low profit-margin ventures, and farm owners must be strictly frugal in their capital investments in order to stay in the black.  
 
 <img  src="images/P1011709.JPG" />
 Fig
