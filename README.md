@@ -13,11 +13,8 @@ Fig. 1. A test-set sequence of images withheld from training, and the resulting 
 
 
 
-<img  src="images/P1011646.JPG" />
 <img  src="images/P1011691.JPG" />
 
-<img  src="images/P1011714.JPG" />
-<img  src="images/P1011722.JPG" />
 
 <p>Convincing farmers to adopt new technology, like analytics dashboards and on-farm cameras and sensors, is challenging for a number of reasons, and adds additional complexity to the task of designing the systems themselves. Hardware purpose built for laboratory environments will not withstand the harsh rigors of service in the field, even inside protected structures like greenhouses. Cameras, sensors and other hardware need to be ruggedized against heat and cold, weather, and worst of all, moisture, which short circuits electronics, clouds lenses, and generally wreaks havoc. Hardware in the field also needs to contend with varying conditions, that is, an uncontrolled environment. Light levels vary hugely in the outdoors, even from minute to minute. The biological eye has an enormous dynamic range of many orders of magnitude, which current cameras cannot hope to achieve. Therefore, working within limitations becomes a necessity, and as in the arts, can lead to novel and useful innovations. The most persistent pressure of deploying hardware on farms is cost. Farmers are willing to adopt new technology, and can see the benefits of emerging technologies, but farms are low profit-margin ventures, and farm owners must be strictly frugal in their capital investments in order to stay in the black.</p>
 
@@ -34,11 +31,17 @@ Fig. 1. A test-set sequence of images withheld from training, and the resulting 
 <p>	For farms, this means insight into the growth rates of various crops, in various locations around the farm. It means cost-free predictions of crop yield, and projections of crop yields for a few weeks into the future. It means optimization methods for helping farmers to decide between complex options, like, should you harvest tomorrow at 85% maturity and sell at $1.59/lb or wait one week and sell the crop at 95% maturity, but for $1.49/lb? It’s really not an easy math problem, and farmers don’t have time to spend on this. Intuition for pricing can get you some of the way there, but it’s too complicated an equation to leave to chance. With small margins, farms need to be smart about pricing, and that includes taking into account market timing, and plant health, labor availability, and inclement weather, to name only a few important factors. To a data scientist, this is a well formulated optimization problem, with constraints.</p>
 <p>	Automating these decisions for farms, given that the data is available, and possible to analyze, can result in recommender systems and analytics with great power and usefulness in the real world. As an industry, agricultural data science is at the beginning of a rapid growth curve. The potential is huge, but there’s a long way to go. Plants and animals on farms are one of our greatest resources, they mostly take care of themselves, and that is why farms are possible in the first place. But there’s much more we could be doing to help them along, and it start with helping farmers see and document the intricate relationships in their operations. Once they can see the detail, they’ll know what to do, and once a good system is trained on a task, that knowledge can spread through the world for free, and help farmers everywhere, if they can afford the tech. Eventually, the algorithms will be as good as free (at least the non-cutting-edge ones), but the hardware always has a linear growth in cost: deploying 2000 sensors is going to cost roughly twice as much as deploying 1000. But running algorithms is a lot cheaper than that, and can grow as big as you want while remaining cheap. So the challenge becomes, how do you convince farmers to spend money on hardware? Make it cheap, make it reliable in poor conditions, and demonstrate it’s usefulness with simple examples.</p>
 
+<img  src="images/P1011709.JPG" />
+Fig
+
+<img  src="images/P1011722.JPG" />
+Fig
+
 
 <img  src="images/P1011646.JPG" />
 Fig The esp32cam is supposedly fixed focus, but the lense can be rotated manually after a small dot of glue, placed there during manufacturing, is cut with a sharp knife. This allows for the setting of a permanent focus setting in line with various stationary applications. The macro abilities of the stock camera are notably good.
 
-<img  src="images/P1011642.JPG" />
+<img  src="images/P1011641.JPG" />
 Fig The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and.
 
 ## Predicting crop yields and harvest dates with computer vision
