@@ -55,10 +55,10 @@ Field conditions on farms and inside greenhouses can be extreme, and also vary w
 Light levels, moisture, temperature, and other pertinent characteristics of the growing environment are all uncontrolled,
 in contrast to laboratory settings.
 So to generalize for field conditions, we train on multiple collated datasets with an eye towards appropriate visual transforms
-that can improve predictive outcomes even further.[Scharr 2014] [Minervini 2016]
-<img src="test.gif" />
+that can improve predictive outcomes even further. Training datasets include the Aberystwyth Leaf Evaluation Dataset. [Bell 2016] and “Finely-grained annotated datasets for image-based plant phenotyping” [Minervini 2016].
 
-Fig. 1. A test-set sequence of images withheld from training from Aberystwyth Leaf Evaluation Dataset. [Bell 2016]  And the resulting segmentation output of the neural network.
+<img src="test.gif" />
+Fig. 1. A test-set sequence of images withheld from training from "Annotated Image Datasets of Rosette Plants" [Scharr 2014]  And the resulting segmentation output of the neural network.
 
 
 ## Tracking Invasive Worms with Machine Learning and Computer Vision
