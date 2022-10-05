@@ -55,10 +55,10 @@ Field conditions on farms and inside greenhouses can be extreme, and also vary w
 Light levels, moisture, temperature, and other pertinent characteristics of the growing environment are all uncontrolled,
 in contrast to laboratory settings.
 So to generalize for field conditions, we train on multiple collated datasets with an eye towards appropriate visual transforms
-that can improve predictive outcomes even further.
+that can improve predictive outcomes even further.[Scharr 2014] [Minervini 2016]
 <img src="test.gif" />
 
-Fig. 1. A test-set sequence of images withheld from training, and the resulting segmentation output of the neural network.
+Fig. 1. A test-set sequence of images withheld from training from Aberystwyth Leaf Evaluation Dataset. [Bell 2016]  And the resulting segmentation output of the neural network.
 
 
 ## Tracking Invasive Worms with Machine Learning and Computer Vision
@@ -129,7 +129,6 @@ In agricultural data science, this means assuring workers that new technologies 
 
 # References
 
-
 [Gehan] Gehan, Malia A., N. Fahlgren, Arash Abbasi, Jeffrey C. Berry, Steven T. Callen, Leonardo Chavez, Andrew N. Doust, Max J. Feldman, Kerrigan B. Gilbert, John G. Hodge, J. Steen Hoyer, Andy Lin, Suxing Liu, Cesar Lizarraga, Argelia Lorence, Michael Miller, Eric Platon, Monica Tessman and Tony Sax. “PlantCV v2: Image analysis software for high-throughput plant phenotyping.” PeerJ 5 (2017).
 
 [Tovar] Tovar, Jose C., J. Steen Hoyer, Andy Lin, Allison Tielking, Steven T. Callen, S Elizabeth Castillo, Michael Miller, Monica Tessman, N. Fahlgren, James C. Carrington, Dmitri A. Nusinow and Malia A. Gehan. “Raspberry Pi–powered imaging for plant phenotyping.” Applications in Plant Sciences 6 (2018).
@@ -164,9 +163,11 @@ In agricultural data science, this means assuring workers that new technologies 
 
 [Gutierrez] Gutierrez Ortega, Jorge Alberto, Noah Fahlgren and Malia A. Gehan. “Segmentation of Overlapping Plants in Multi-plant Image Time Series.” (2021).
 
-[Scharr] Scharr, Hanno, Massimo Minervini, Andreas Fischbach and Sotirios A. Tsaftaris. “Annotated Image Datasets of Rosette Plants.” (2014).
+[Scharr 2014] Scharr, Hanno, Massimo Minervini, Andreas Fischbach and Sotirios A. Tsaftaris. “Annotated Image Datasets of Rosette Plants.” (2014).
 
-[Minervini] Minervini, Massimo, Andreas Fischbach, Hanno Scharr and Sotirios A. Tsaftaris. “Finely-grained annotated datasets for image-based plant phenotyping.” Pattern Recognit. Lett. 81 (2016): 80-89.
+[Bell 2016] Bell, Jonathan, and Hannah M. Dee. Aberystwyth Leaf Evaluation Dataset [Data set]. Zenodo. http://doi.org/10.5281/zenodo.168158 (2016).
+
+[Minervini 2016] Minervini, Massimo, Andreas Fischbach, Hanno Scharr and Sotirios A. Tsaftaris. “Finely-grained annotated datasets for image-based plant phenotyping.” Pattern Recognit. Lett. 81 (2016): 80-89.
 
 [Singh] Singh, Arti, Baskar Ganapathysubramanian, Asheesh K Singh and Soumik Sarkar. “Machine Learning for High-Throughput Stress Phenotyping in Plants.” Trends in plant science 21 2 (2016): 110-124 .
 
