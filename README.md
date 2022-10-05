@@ -7,6 +7,7 @@
 ## Lowering the Cost of Farm Research Cameras
 <img  src="images/P1011691.JPG" />
 Fig
+Fig The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and cable glands installed for wiring.
 
 <img  src="dataset/test/spinach/images/2022_05_29_07_09_34.png" />
 Fig
@@ -42,8 +43,7 @@ Fig
 <img  src="images/P1011646.JPG" />
 Fig The esp32cam is supposedly fixed focus, but the lense can be rotated manually after a small dot of glue, placed there during manufacturing, is cut with a sharp knife. This allows for the setting of a permanent focus setting in line with various stationary applications. The macro abilities of the stock camera are notably good.
 
-<img  src="images/P1011641.JPG" />
-Fig The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and cable glands installed for wiring.
+
 
 
 ## Fine-tuning a semantic segmentation neural network on plant phenotyping datasets 
