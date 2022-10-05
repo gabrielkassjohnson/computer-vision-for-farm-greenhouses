@@ -10,13 +10,7 @@ Fig. 1. A test-set sequence of images withheld from training, and the resulting 
 
 <img  src="dataset/test/spinach/predictions/2022_05_29_07_09_34.png" />
 
-<img  src="images/P1011632.JPG" />
-
-<img  src="images/P10116341.JPG" />
-<img  src="images/P1011642.JPG" />
 <img  src="images/P1011646.JPG" />
-<img  src="images/P1011691.JPG" />
-<img  src="images/P1011692.JPG" />
 <img  src="images/P1011702.JPG" />
 <img  src="images/P1011702.JPG" />
 <img  src="images/P1011709.JPG" />
@@ -40,6 +34,8 @@ Fig. 1. A test-set sequence of images withheld from training, and the resulting 
 <p>	Automating these decisions for farms, given that the data is available, and possible to analyze, can result in recommender systems and analytics with great power and usefulness in the real world. As an industry, agricultural data science is at the beginning of a rapid growth curve. The potential is huge, but there’s a long way to go. Plants and animals on farms are one of our greatest resources, they mostly take care of themselves, and that is why farms are possible in the first place. But there’s much more we could be doing to help them along, and it start with helping farmers see and document the intricate relationships in their operations. Once they can see the detail, they’ll know what to do, and once a good system is trained on a task, that knowledge can spread through the world for free, and help farmers everywhere, if they can afford the tech. Eventually, the algorithms will be as good as free (at least the non-cutting-edge ones), but the hardware always has a linear growth in cost: deploying 2000 sensors is going to cost roughly twice as much as deploying 1000. But running algorithms is a lot cheaper than that, and can grow as big as you want while remaining cheap. So the challenge becomes, how do you convince farmers to spend money on hardware? Make it cheap, make it reliable in poor conditions, and demonstrate it’s usefulness with simple examples.</p>
 
 
+<img  src="images/P1011642.JPG" />
+Fig The esp32cam is supposedly fixed focus, but the lense can be rotated manually after a small dot of glue, placed there during manufacturing, is cut with a sharp knife. This allows for the setting of a permanent focus setting in line with various stationary applications. The macro abilities of the stock camera are notably good.
 
 ## Predicting crop yields and harvest dates with computer vision
 
