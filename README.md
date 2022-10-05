@@ -6,11 +6,10 @@
 
 ## Lowering the Cost of Farm Research Cameras
 <img  src="images/P1011691.JPG" />
-Fig
-Fig The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and cable glands installed for wiring.
+Figure 1. The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and cable glands installed for wiring.
 
 <img  src="dataset/test/spinach/images/2022_05_29_07_09_34.png" />
-Fig
+Figure 2. An example frame of collected data for spinach plants.
 
 
 
