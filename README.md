@@ -1,19 +1,19 @@
 # Full Stack Computer Vision for Farm Greenhouses
 
 
-<img  src="test.gif" />
 
 Fig. 1. A test-set sequence of images withheld from training, and the resulting segmentation output of the neural network.
 
 ## Lowering the Cost of Farm Research Cameras
-<img  src="dataset/test/spinach/images/2022_05_29_07_09_34.png" />
-
-<img  src="dataset/test/spinach/predictions/2022_05_29_07_09_34.png" />
-
-
-
-
 <img  src="images/P1011691.JPG" />
+Fig
+
+<img  src="dataset/test/spinach/images/2022_05_29_07_09_34.png" />
+Fig
+
+
+
+
 
 
 <p>Convincing farmers to adopt new technology, like analytics dashboards and on-farm cameras and sensors, is challenging for a number of reasons, and adds additional complexity to the task of designing the systems themselves. Hardware purpose built for laboratory environments will not withstand the harsh rigors of service in the field, even inside protected structures like greenhouses. Cameras, sensors and other hardware need to be ruggedized against heat and cold, weather, and worst of all, moisture, which short circuits electronics, clouds lenses, and generally wreaks havoc. Hardware in the field also needs to contend with varying conditions, that is, an uncontrolled environment. Light levels vary hugely in the outdoors, even from minute to minute. The biological eye has an enormous dynamic range of many orders of magnitude, which current cameras cannot hope to achieve. Therefore, working within limitations becomes a necessity, and as in the arts, can lead to novel and useful innovations. The most persistent pressure of deploying hardware on farms is cost. Farmers are willing to adopt new technology, and can see the benefits of emerging technologies, but farms are low profit-margin ventures, and farm owners must be strictly frugal in their capital investments in order to stay in the black.</p>
@@ -42,7 +42,37 @@ Fig
 Fig The esp32cam is supposedly fixed focus, but the lense can be rotated manually after a small dot of glue, placed there during manufacturing, is cut with a sharp knife. This allows for the setting of a permanent focus setting in line with various stationary applications. The macro abilities of the stock camera are notably good.
 
 <img  src="images/P1011641.JPG" />
-Fig The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and.
+Fig The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and cable glands installed for wiring.
+
+
+## Fine-tuning a semantic segmentation neural network on plant phenotyping datasets 
+
+
+Training on multiple datasets increases the ability of the trained network to generalize.
+This is our goal in deploying networks into the field, resilience to odd conditions, and still giving sensible results.
+Field conditions on farms and inside greenhouses can be extreme, and also vary widely in short time spans.
+Light levels, moisture, temperature, and other pertinent characteristics of the growing environment are all uncontrolled,
+in contrast to laboratory settings.
+So to generalize for field conditions, we train on multiple collated datasets with an eye towards appropriate visual transforms
+that can improve predictive outcomes even further.
+
+
+## Tracking Invasive Worms with Machine Learning and Computer Vision
+<img src="./tracking-invasive-worms-with-cv/worms/test.gif" />
+New England has an invasive worm problem, disrupting ecosystems and causing economic damage.
+Several visual characteristics of these Pheretimoid earthworms suggest the possibility 
+of using computer vision to identify them.
+Their color is distinctive, and different from prefered populations of earthworms.
+If a training set with accurate contours can be created, a model could be trained to
+classify worm instances based on color.
+The body proportions are also distinctive, in general longer and less fat than locally adapted earthworms.
+The proportion of average pixel length to average pixel width could be useful in identifying them.
+The clitellum (the ring around the body) is very light in color, and farther towards the front of the worm.
+The average speed of the invasive worm is much higher than that of local earthworm populations in New England and the USA.
+This speed can be calculated from several frames of video, provided it is timestamped, and
+a length measurement card is visible in the image.
+An estimate of the speed of the worm in the above animation is roughly 2 inches/minute, rather slow, making this specimen not likely to be invasive.
+
 
 ## Predicting crop yields and harvest dates with computer vision
 
@@ -72,34 +102,6 @@ Segmenting leaves is nearly solved, and time series models are coming along quic
 I contend that measuring the rate of change of harvestable yield with computer vision can allow for the optimization of harvest timing.
 
 Put in simple English: Allow the crop to grow as long as possible, assuming optimal inputs, until harvest is compelled by either storm or drought, or market/labor readiness, or until the rate of growth slows to the point where the market price will decrease more in one unit of time than the crop will grow. If the market price is currently increasing, even a small decrease in harvest yield could be tolerated. This raises the issue of quality, however, which is intimately related to plant life cycle timing, yet another reason why timing harvest just prior to maturity is a critical decision. The determination is hard because it’s an online learning problem, the farmers only have access to the growth information up until now, not tomorrow, and there’s always a chance that the crop could grow more than expected by tomorrow. Determining when to stop an ongoing process is exceedingly difficult for people, and fundamentally requires calculus. This is why computer vision will excel at prediction crop readiness, assuming it can perceive sufficiently well, for a similar reason that it excels in radiology. The tiny perturbations in data are magnified by well designed ML algorithms, allowing us to see them, and make decisions with better information. Knowing when a crop is nearing maturity is a deceptively complex problem, but data science is going to have a role to play in these decisions, and the success of our future agricultural systems may hinge on it, as the environment becomes hotter and less predictable.
-
-## Semantic Segmentation Training
-
-
-Training on multiple datasets increases the ability of the trained network to generalize.
-This is our goal in deploying networks into the field, resilience to odd conditions, and still giving sensible results.
-Field conditions on farms and inside greenhouses can be extreme, and also vary widely in short time spans.
-Light levels, moisture, temperature, and other pertinent characteristics of the growing environment are all uncontrolled,
-in contrast to laboratory settings.
-So to generalize for field conditions, we train on multiple collated datasets with an eye towards appropriate visual transforms
-that can improve predictive outcomes even further.
-
-
-## Tracking Invasive Worms with Machine Learning and Computer Vision
-<img src="./tracking-invasive-worms-with-cv/worms/test.gif" />
-New England has an invasive worm problem, disrupting ecosystems and causing economic damage.
-Several visual characteristics of these Pheretimoid earthworms suggest the possibility 
-of using computer vision to identify them.
-Their color is distinctive, and different from prefered populations of earthworms.
-If a training set with accurate contours can be created, a model could be trained to
-classify worm instances based on color.
-The body proportions are also distinctive, in general longer and less fat than locally adapted earthworms.
-The proportion of average pixel length to average pixel width could be useful in identifying them.
-The clitellum (the ring around the body) is very light in color, and farther towards the front of the worm.
-The average speed of the invasive worm is much higher than that of local earthworm populations in New England and the USA.
-This speed can be calculated from several frames of video, provided it is timestamped, and
-a length measurement card is visible in the image.
-An estimate of the speed of the worm in the above animation is roughly 2 inches/minute, rather slow, making this specimen not likely to be invasive.
 
 
 
