@@ -2,7 +2,7 @@
 
 
 
-Fig. 1. A test-set sequence of images withheld from training, and the resulting segmentation output of the neural network.
+
 
 ## Lowering the Cost of Farm Research Cameras
 <img  src="images/P1011691.JPG" />
@@ -55,6 +55,9 @@ Light levels, moisture, temperature, and other pertinent characteristics of the 
 in contrast to laboratory settings.
 So to generalize for field conditions, we train on multiple collated datasets with an eye towards appropriate visual transforms
 that can improve predictive outcomes even further.
+<img src="test.gif" />
+
+Fig. 1. A test-set sequence of images withheld from training, and the resulting segmentation output of the neural network.
 
 
 ## Tracking Invasive Worms with Machine Learning and Computer Vision
