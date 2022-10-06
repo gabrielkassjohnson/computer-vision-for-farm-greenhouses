@@ -38,15 +38,22 @@ Figure 4. Greenhouses (here in miniature form, at the scale of row cover) offer 
 
 
 Training on multiple datasets increases the ability of the trained network to generalize.
-This is our goal in deploying networks into the field, resilience to odd conditions, and still giving sensible results.
+This is our goal in deploying networks into the field, getting sensible results while exhibiting resilience to odd conditions, and still .
 Field conditions on farms and inside greenhouses can be extreme, and also vary widely in short time spans.
 Light levels, moisture, temperature, and other pertinent characteristics of the growing environment are all uncontrolled,
-in contrast to laboratory settings. So to generalize for field conditions, we train on multiple collated datasets with an eye towards appropriate visual transforms that can improve predictive outcomes even further. Training datasets include the Aberystwyth Leaf Evaluation Dataset. [Bell 2016] and “Finely-grained annotated datasets for image-based plant phenotyping” [Minervini 2016].
+in contrast to laboratory settings. So to generalize for field conditions, we train on multiple collated datasets with as much generality as possible. Extending the bounds of what the net is asked to do in training can transfer to the inference step, in theory. For instance, training on images of tobacco plants should improve the ability of the network to segment images of spinach, because the leaf shapes and textures are very similar, especially compared to Arabidopsis Thaliana, which has a small single-lobed leaf. Appropriate visual transforms that can improve predictive outcomes even further: rotation and random crops are standard. It would be interesting to try various forms of image degradation, especially related to lighting, color, and contrast, since these variables change a lot in the real world. Training datasets so far include the Aberystwyth Leaf Evaluation Dataset [Bell 2016] and “Finely-grained annotated datasets for image-based plant phenotyping” [Minervini 2016].
+
 
 <img src="test.gif" />
-Fig. 1. A test-set sequence of images withheld from training from "Annotated Image Datasets of Rosette Plants" [Scharr 2014]  And the resulting segmentation output of the neural network.
+Fig. 5. A test-set sequence of images withheld from training from "Annotated Image Datasets of Rosette Plants" [Scharr 2014]  And the resulting segmentation output of the neural network.
+
+Notably, the Aberyswyth dataset includes metadata for leaf mass, very carefully collected. This training data is incredibly valuable and hard to find. The current neural network is not making predictions for plant mass, but this is the most important next step for the project. Getting accurate predictions of mass means being able to draw mass curves, which can show the slowing of plant growth, and therefore create an opportunity for optimizing harvest timing. We've made a simple attempt to measure the mass of spinach leaves in the field, using the existing cameras to document a manual process of cutting and weighing, perhaps not the best method, but close to what really happens on farms. As an aside, there will be an important role to play for iot connected scales in integrated farm management systems. The wash/pack shed is where a lot of the most important work on the farm is done. Harvests can be improved or ruined through bad post-harvest handling. Since most crops are sold by weight, scales on the farm are of critical importance, and iot smart scales which can connect to cv models of harvested crops will create instant value for farm businesses.
+
+Figure 6. An approach to mass data collected is illustrated in this animation. Turning the data into metadata is the hard part.
 
 The neural network is a bootstrapped version of a segmentation network from Facebook Research. The network is instantiated with pretrained weights, then the output layers are altered for the desired shape (in our case, a simple segmentation only model, with plant and background only. Then, the multiple datasets are collated into a single custom data-loader. The model is trained in parallel on one Nvidia GTX 1050i and one Nvidia GTX 1650i.
+
+Next steps for the neural network include mass predictions, as dicsussed, and then instance segmentation, detection and classification of plants and pests. Datasets like iNaturalist make these steps possible. Expertise to do so is decreasing all the time, but still, combining training sets in creative ways remains the art of neural nets. The architectures are available, but knowing what to look for in training data still takes subjective consideration. Perhaps the most interesting and impactful future development of neural networks in the field will be methods for learning from unstructured data. Unsupervised learning, combined with traditional computer vision techniques may open doors for automated labelling, training set expansion, or inherently useful predictions in it's own right. Below, we'll discuss one possible avenue for combining data collection, traditional techniques, and training set creating for a new and important task.
 
 
 ## Tracking Invasive Worms with Machine Learning and Computer Vision
@@ -97,7 +104,7 @@ Put in simple English: Allow the crop to grow as long as possible, assuming opti
 
 
 
-## Ethics and the future of agricultural data science:
+## Ethical considerations for the future of agricultural data science and computer vision:
 
 Every advance in technology presents humanity with a choice as to how it’s implemented, and offers some balance of benefits versus costs. Some technologies are a clear win-win, solar cells for example, they have no moving parts, are cheap to produce, and can generate electricity for decades as long as they're kept fairly clean. The value that solar cells add to humanity’s overall standard of living is incredibly high, and the externalities (the costs in mining, manufacturing, transport, etc) are almost certainly lower than the benefits they provide over time. The same argument is harder to make for burning fossil fuels, even though they contain an amazing amount of energy, the costs are appearing to grow as we take them into account more fulsomely. Making specialty plastics from oilstocks however is an efficient and necessary use of oil. Many indispensable plastics and rubbers used in medicine are made only from petroleum. Until an alternative is invented, we need those plastics to live, even though mining them has large costs. A knife can kill, but more commonly it feeds. All technology is a balance.
 
