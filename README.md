@@ -52,7 +52,7 @@ Notably, the Aberyswyth dataset includes metadata for leaf mass, very carefully 
 <img src="spinach.gif" />
 
 Figure 6. Results of the Neural Net on an original test set.
-Figure 7. An approach to mass data collected is illustrated in this animation. Turning the data into metadata is the hard part.
+
 
 The neural network is a bootstrapped version of a segmentation network from Facebook Research. The network is instantiated with pretrained weights, then the output layers are altered for the desired shape (in our case, a simple segmentation only model, with plant and background only. Then, the multiple datasets are collated into a single custom data-loader. The model is trained in parallel on one Nvidia GTX 1050i and one Nvidia GTX 1650i.
 
