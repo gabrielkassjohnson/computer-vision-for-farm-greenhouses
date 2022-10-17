@@ -6,10 +6,10 @@ Computer vision technology for farms has matured quickly in recent years, due la
 
 ## Lowering the Cost of Farm Research Cameras
 <img  src="images/P1011691.JPG" />
-Figure 1. The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and cable glands installed for wiring.<br>
+Figure 1. The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and cable glands installed for wiring.<br><br><br>
 
 <img  src="images/P1011722.JPG" />
-Figure 2. Greenhouses (here in miniature form, at the scale of row cover) offer protection from the elements, and have the extra benefit of regulating aspects of the environment relevant to image collection. Disturbance of the soil and plants from wind and rain is neutralized, while light is diffused and is cast more evenly. Stationary cameras are exceedingly simple and can watch the same area for an entire season, or several seasons.<br><br>
+Figure 2. Greenhouses (here in miniature form, at the scale of row cover) offer protection from the elements, and have the extra benefit of regulating aspects of the environment relevant to image collection. Disturbance of the soil and plants from wind and rain is neutralized, while light is diffused and is cast more evenly. Stationary cameras are exceedingly simple and can watch the same area for an entire season, or several seasons.<br><br><br>
 
 <img  src="dataset/test/spinach/images/2022_05_29_07_09_34.png" />
 Figure 3. An example frame of data collected of spinach plants.<br><br><br>
