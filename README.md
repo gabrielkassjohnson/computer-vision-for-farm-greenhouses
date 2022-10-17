@@ -1,7 +1,7 @@
 # Full Stack Computer Vision for Farm Greenhouses
 
 ## Abstract
-Computer vision technology for farms has matured quickly in recent years, due largely to healthy interest and funding. A full stack engineering solution for this problem consists of at least three main parts: controlling costs for firmware and hardware construction, finding or creating appropriate training sets for desired tasks, and engineering applications for useful model outputs. Data engineering and networking infrastructure are a necessary precondition for achieving these, but not strictly in the data science loop. Where they collide is data curration and interpretation, which is still a difficult and intensive manual process, requiring some knowledge of the data and it's tendencies. Here we describe an extremely low cost, open-source, full stack computer vision system for farm greenhouses. First we'll discuss hardware construction, touch briefly on data collection in the field and it's challenges, then turn to training a segmentation neural net with publicly available datasets, and finally discuss a few applications of the combined system, like pest identification and predicting growth curves for harvestable plant mass, pointing the way towards useful farm analytics dashboards.
+Computer vision technology for farms has matured quickly in recent years, due largely to healthy interest and funding. A full stack engineering solution for this problem consists of at least three main parts: controlling costs for firmware and hardware construction, finding or creating appropriate training sets for desired tasks, and engineering applications for useful model outputs. Data engineering and networking infrastructure are a necessary precondition for achieving these, but not strictly in the data science loop. Where they collide is data curration and interpretation, which is still a difficult and intensive manual process, requiring some knowledge of the data and it's tendencies. Here we describe an extremely low cost, open-source, full stack computer vision system for farm greenhouses. First we'll discuss hardware construction, touch briefly on data collection in the field and it's challenges, then turn to training a segmentation neural net with publicly available datasets, and finally discuss a few applications of the combined system, like pest identification, and predicting growth curves for harvest yeild and timing [Adak 2021, Riera 2021], pointing the way towards useful farm analytics dashboards.
 
 
 ## Lowering the Cost of Farm Research Cameras
@@ -62,7 +62,7 @@ Next steps for the neural network include mass predictions, as discussed, and th
 <img src="./tracking-invasive-worms-with-cv/worms/test.gif" />
 Figure 6. Drawing contours with traditional cv. <br><br><br>
 
-This example is meant to show the power of combining traditional cv with specialized cv tools for natural images like PlantCV [Gehan], and standard data science techniques.
+This example is meant to show the power of combining traditional cv with specialized cv tools for natural images like PlantCV [Gehan 2017], and standard data science techniques.
 New England has an invasive worm problem, disrupting ecosystems and causing economic damage.
 Several visual characteristics of these 'Pheretimoid' earthworms (jumping worms) suggest the possibility 
 of using computer vision to identify them. If a training set with accurate contours can be created using techniques like background subraction and segmenting by a known color range, a predictive model could be trained to
@@ -89,15 +89,19 @@ As technologies disrupt various industries, giving people choices will alleviate
 In agricultural data science, it's vital to assure workers that new technologies are not meant to monitor and judge their work, but to give them information and tools that can help them do their jobs better. In practice this means including workers in specialized training, and getting feedback early in the design process. Most of all it means communicating to people that technologies will never be able to replace trust and teamwork. The technology can help us work better, but it can’t replace what farms need to survive, which is the attention of people who really care.
 
 ## References
+[Adak 2021] Adak, Alper, Seth C. Murray, Sofija Božinović, Regan Lindsey, Shakirah Nakasagga, Sumantra Chatterjee, Steven L. Anderson and Scott C. Wilde. “Temporal Vegetation Indices and Plant Height from Remotely Sensed Imagery Can Predict Grain Yield and Flowering Time Breeding Value in Maize via Machine Learning Regression.” Remote. Sens. 13 (2021): 2141.
 
 [Bell 2016] Bell, Jonathan, and Hannah M. Dee. Aberystwyth Leaf Evaluation Dataset [Data set]. Zenodo. http://doi.org/10.5281/zenodo.168158 (2016).
 
 [Fahlgren 2015] Fahlgren, N., Malia A. Gehan and Ivan R. Baxter. “Lights, camera, action: high-throughput plant phenotyping is ready for a close-up.” Current opinion in plant biology 24 (2015): 93-9.
 
+[Gehan 2017] Gehan, Malia A., N. Fahlgren, Arash Abbasi, Jeffrey C. Berry, Steven T. Callen, Leonardo Chavez, Andrew N. Doust, Max J. Feldman, Kerrigan B. Gilbert, John G. Hodge, J. Steen Hoyer, Andy Lin, Suxing Liu, Cesar Lizarraga, Argelia Lorence, Michael Miller, Eric Platon, Monica Tessman and Tony Sax. “PlantCV v2: Image analysis software for high-throughput plant phenotyping.” PeerJ 5 (2017).
+
 [Li 2016] Li, Kun, Zhipeng Li and Qichang Yang. “Improving Light Distribution by Zoom Lens for Electricity Savings in a Plant Factory with Light-Emitting Diodes.” Frontiers in Plant Science 7 (2016): n. pag.
 
 [Minervini 2016] Minervini, Massimo, Andreas Fischbach, Hanno Scharr and Sotirios A. Tsaftaris. “Finely-grained annotated datasets for image-based plant phenotyping.” Pattern Recognit. Lett. 81 (2016): 80-89.
-
+ 
+[Riera 2021] Riera, Luis G, Matthew E. Carroll, Zhisheng Zhang, Johnathon M. Shook, Sambuddha Ghosal, Tianshuang Gao, Arti Singh, Sourabh Bhattacharya, Baskar Ganapathysubramanian, Asheesh K Singh and Soumik Sarkar. “Deep Multiview Image Fusion for Soybean Yield Estimation in Breeding Applications.” Plant Phenomics 2021 (2021).
 
 [Scharr 2014] Scharr, Hanno, Massimo Minervini, Andreas Fischbach and Sotirios A. Tsaftaris. “Annotated Image Datasets of Rosette Plants.” (2014).
 
@@ -109,7 +113,7 @@ In agricultural data science, it's vital to assure workers that new technologies
 
 ## Additional Reading
 
-[Gehan] Gehan, Malia A., N. Fahlgren, Arash Abbasi, Jeffrey C. Berry, Steven T. Callen, Leonardo Chavez, Andrew N. Doust, Max J. Feldman, Kerrigan B. Gilbert, John G. Hodge, J. Steen Hoyer, Andy Lin, Suxing Liu, Cesar Lizarraga, Argelia Lorence, Michael Miller, Eric Platon, Monica Tessman and Tony Sax. “PlantCV v2: Image analysis software for high-throughput plant phenotyping.” PeerJ 5 (2017).
+
 
 [Mirnezami] Mirnezami, Seyed Vahid. “Application of deep learning and machine learning workflows for field-scale phenotyping.” (2020).
 
@@ -130,8 +134,6 @@ In agricultural data science, it's vital to assure workers that new technologies
 
 [Mochida] Mochida, Keiichi, Satoru Koda, Komaki Inoue, Takashi Hirayama, Shojiro Tanaka, Ryuei Nishii and Farid Melgani. “Computer vision-based phenotyping for improvement of plant productivity: a machine learning perspective.” GigaScience 8 (2019).
 
-[Adak] Adak, Alper, Seth C. Murray, Sofija Božinović, Regan Lindsey, Shakirah Nakasagga, Sumantra Chatterjee, Steven L. Anderson and Scott C. Wilde. “Temporal Vegetation Indices and Plant Height from Remotely Sensed Imagery Can Predict Grain Yield and Flowering Time Breeding Value in Maize via Machine Learning Regression.” Remote. Sens. 13 (2021): 2141.
-
 [Yoosefzadeh-Najafabadi] Yoosefzadeh-Najafabadi, Mohsen, Hugh James Earl, Dan C. Tulpan, John J. Sulik and Milad Eskandari. “Application of Machine Learning Algorithms in Plant Breeding: Predicting Yield From Hyperspectral Reflectance in Soybean.” Frontiers in Plant Science 11 (2020).
 
 [Jiang] Jiang, Yu and Changying Li. “Convolutional Neural Networks for Image-Based High-Throughput Plant Phenotyping: A Review.” Plant Phenomics 2020 (2020).
@@ -151,5 +153,3 @@ In agricultural data science, it's vital to assure workers that new technologies
 [Nomura] Nomura, Koichi, Akihiro Takada, Hirosato Kunishige, Yukio Ozaki, Takashi Okayasu, Daisuke Yasutake and Masaharu Kitano. “Long-term and Continuous Measurement of Canopy Photosynthesis and Growth of Spinach.” Environment Control in Biology (2020).
 
 [Samiei] Samiei, Salma, Pejman Rasti, Joseph Ly Vu, Julia Buitink and David Rousseau. “Deep learning-based detection of seedling development.” Plant Methods 16 (2020).
-
-[Riera] Riera, Luis G, Matthew E. Carroll, Zhisheng Zhang, Johnathon M. Shook, Sambuddha Ghosal, Tianshuang Gao, Arti Singh, Sourabh Bhattacharya, Baskar Ganapathysubramanian, Asheesh K Singh and Soumik Sarkar. “Deep Multiview Image Fusion for Soybean Yield Estimation in Breeding Applications.” Plant Phenomics 2021 (2021).
