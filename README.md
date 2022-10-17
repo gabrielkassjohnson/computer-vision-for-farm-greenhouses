@@ -9,14 +9,12 @@ Computer vision technology for farms has matured quickly in recent years, due la
 Figure 1. The power supply (and the cameras) are protected by commercially available electrical conduit boxes. Holes are drilled, and cable glands installed for wiring.
 &nbsp;
 
+<img  src="images/P1011722.JPG" />
+Figure 2. Greenhouses (here in miniature form, at the scale of row cover) offer protection from the elements, and have the extra benefit of regulating aspects of the environment relevant to image collection. Disturbance of the soil and plants from wind and rain is neutralized, while light is diffused and is cast more evenly. Stationary cameras are exceedingly simple and can watch the same area for an entire season, or several seasons.
 
 <img  src="dataset/test/spinach/images/2022_05_29_07_09_34.png" />
-Figure 2. An example frame of data collected of spinach plants.<br>
+Figure 3. An example frame of data collected of spinach plants.  
 Convincing farmers to adopt new technology, like analytics dashboards and on-farm cameras and sensors, is challenging for a number of reasons, and adds additional complexity to the task of designing the systems themselves. Hardware purpose built for laboratory environments will not withstand the harsh rigors of service in the field, even inside protected structures like greenhouses. Cameras, sensors and other hardware need to be ruggedized against heat and cold, weather, and worst of all, moisture, which  clouds lenses and short circuits microcontrollers. Hardware in the field also needs to contend with uncontrolled and varying conditions. Light levels span huge ranges in the outdoors, even from minute to minute. The biological eye has an enormous dynamic range of many orders of magnitude, which current cameras cannot hope to achieve. Therefore, working within limitations becomes a necessity, and can hopefully lead to novel and useful innovations. The most persistent pressure of deploying hardware on farms is cost. Farmers are willing to adopt new technology, and can see the benefits of emerging technologies, but farms are low profit-margin ventures, and farm owners must be strictly frugal in their capital investments in order to stay profitable.
-
-<img  src="images/P1011709.JPG" />
-Figure 3. Stationary cameras are exceedingly simple and can watch the same area for an entire season, or several seasons.
-
 
 In their paper on raspberry pi cameras used for plant phenotyping [Tovar 2018], the Danforth lab in St Louis has significantly reduced the cost of manufacturing a workable plant capture camera. Besides the obvious uses and benefits to research, this platform serves as a good starting point [Fahlgren 2015] for developing an even lower cost camera that can be deployed commercially, and has the potential to add tremendous value to farms, with the extensive analytics that they will eventually enable. Of course, these analytics, and the foundational algorithms that underlie them, are the interesting part of agricultural data science, but progress on the algorithms has quickly outpaced progress on data capture. The algorithms are essentially ready for deployment on a large scale around the world, but companies that offer services to collect data from farms reliably are only beginning to appear and thrive. Both aerial and ground-based Drone photography will likely be the most impactful modality of on-farm photography. But other modalities will have roles to play, based on the particular needs of the farm. Huge acreages will certainly come to rely even more heavily on satellite data, and ‘precision agriculture’, than they already have. But these sorts of analytics are not available to managers of small and medium sized farms. Small farms in particular have difficult hurdles to deployment, simply making the value proposition good enough is a challenge. Therefore, farm cv technologies are going to be rather specialized as they begin to gain traction in the marketplace.
 
@@ -40,9 +38,6 @@ One of the primary difficulties of farming is the correct timing of harvest. Far
 Farm analytics systems can't be expected to take the place of human decision makers juggling all these concerns. The role of ai is to support decision making with simple clear analytics that summarizes a large amount of data. For example, predicting harvestable mass over time results in a curve with positive slope, but negative curvature, meaning that plant growth eventually slows down. It's important to catch the optimal harvest time, in coordination with all the other factors. A simple projection of harvest weight is incredibly useful information for a farmer. There’s an old adage in agriculture that says “The best fertilizer is the farmer’s footsteps.” It means that farmers who pay attention to their plants seem to have better results. Analytics can add another layer of observability into farms, further elevating the decision making capabilites of farm managers.
 
 
-
-<img  src="images/P1011722.JPG" />
-Figure 4. Greenhouses (here in miniature form, at the scale of row cover) offer protection from the elements, and have the extra benefit of regulating aspects of the environment relevant to image collection. Disturbance of the soil and plants from wind and rain is neutralized, while light is diffused and is cast more evenly, with fewer drastic changes throughout the day.
 
 
 ## Fine-tuning a semantic segmentation neural network on plant phenotyping datasets 
