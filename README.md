@@ -50,7 +50,7 @@ in contrast to laboratory settings. So to generalize for field conditions, we tr
 
 
 <img src="test.gif" />
-Fig. 4. A test-set sequence of images withheld from training from "Annotated Image Datasets of Rosette Plants" [Scharr 2014]  And the resulting segmentation output of the neural network.
+Fig. 4. A test-set sequence of images withheld from training from "Annotated Image Datasets of Rosette Plants" [Scharr 2014]  And the resulting segmentation output of the neural network.<br><br><br>
 
 Notably, the Aberyswyth dataset includes metadata for leaf mass, very carefully collected. This training data is incredibly valuable and hard to find. The current neural network is not making predictions for plant mass, but this is the most important next step for the project. Getting accurate predictions of mass means being able to draw mass curves, which can show the slowing of plant growth, and therefore create an opportunity for optimizing harvest timing. We've made a simple attempt to measure the mass of spinach leaves in the field, using the existing cameras to document a manual process of cutting and weighing, perhaps not the best method, but close to what really happens on farms. As an aside, there will be an important role to play for iot connected scales in integrated farm management systems. The wash/pack shed is where a lot of the most important work on the farm is done. Harvests can be improved or ruined through bad post-harvest handling. Since most crops are sold by weight, scales on the farm are of critical importance, and iot smart scales which can connect to cv models of harvested crops will create instant value for farm businesses.
 
@@ -68,6 +68,7 @@ Next steps for the neural network include mass predictions, as dicsussed, and th
 
 <img src="./tracking-invasive-worms-with-cv/worms/test.gif" />
 Figure 6. Drawing contours with traditional cv. <br><br><br>
+
 This example is meant to show the power of combining traditional cv tools, like OpenCV, with specialized cv tools for natural images like PlantCV, and data science techniques.
 New England has an invasive worm problem, disrupting ecosystems and causing economic damage.
 Several visual characteristics of these Pheretimoid earthworms suggest the possibility 
@@ -103,7 +104,14 @@ It means including them in the new technology, and the riches it creates. It als
 In agricultural data science, this means assuring workers that new technologies are not meant to monitor and judge their work, but to give them information and tools that help them do their jobs better. It means including workers in training, and even early in the design process. Most of all it means communicating with people, and demonstrating to them that technologies will never be able to replace trust between people, and every organization needs trust to function. The tech can help us work better, but it can’t replace what farms need to survive, which is the attention of people who really care. In our drive to develop new technologies on the farm, putting people first can never come second.
 
 ## References
-[Fahlgren 2015] Fahlgren, N., Malia A. Gehan and Ivan R. Baxter. “Lights, camera, action: high-throughput plant phenotyping is ready for a close-up.” Current opinion in plant biology 24 (2015): 93-9 .
+
+[Bell 2016] Bell, Jonathan, and Hannah M. Dee. Aberystwyth Leaf Evaluation Dataset [Data set]. Zenodo. http://doi.org/10.5281/zenodo.168158 (2016).
+
+[Fahlgren 2015] Fahlgren, N., Malia A. Gehan and Ivan R. Baxter. “Lights, camera, action: high-throughput plant phenotyping is ready for a close-up.” Current opinion in plant biology 24 (2015): 93-9.
+
+[Minervini 2016] Minervini, Massimo, Andreas Fischbach, Hanno Scharr and Sotirios A. Tsaftaris. “Finely-grained annotated datasets for image-based plant phenotyping.” Pattern Recognit. Lett. 81 (2016): 80-89.
+
+[Scharr 2014] Scharr, Hanno, Massimo Minervini, Andreas Fischbach and Sotirios A. Tsaftaris. “Annotated Image Datasets of Rosette Plants.” (2014).
 
 [Shakoor 2022] Shakoor, Nadia and Todd C. Mockler. “Wireless Fixed Camera Network for Greenhouse-Based Plant Phenotyping.” Methods in molecular biology 2539 (2022): 49-56 .
 
@@ -114,7 +122,6 @@ In agricultural data science, this means assuring workers that new technologies 
 ## Additional Reading
 
 [Gehan] Gehan, Malia A., N. Fahlgren, Arash Abbasi, Jeffrey C. Berry, Steven T. Callen, Leonardo Chavez, Andrew N. Doust, Max J. Feldman, Kerrigan B. Gilbert, John G. Hodge, J. Steen Hoyer, Andy Lin, Suxing Liu, Cesar Lizarraga, Argelia Lorence, Michael Miller, Eric Platon, Monica Tessman and Tony Sax. “PlantCV v2: Image analysis software for high-throughput plant phenotyping.” PeerJ 5 (2017).
-
 
 [Mirnezami] Mirnezami, Seyed Vahid. “Application of deep learning and machine learning workflows for field-scale phenotyping.” (2020).
 
@@ -142,12 +149,6 @@ In agricultural data science, this means assuring workers that new technologies 
 [Jiang] Jiang, Yu and Changying Li. “Convolutional Neural Networks for Image-Based High-Throughput Plant Phenotyping: A Review.” Plant Phenomics 2020 (2020).
 
 [Gutierrez] Gutierrez Ortega, Jorge Alberto, Noah Fahlgren and Malia A. Gehan. “Segmentation of Overlapping Plants in Multi-plant Image Time Series.” (2021).
-
-[Scharr 2014] Scharr, Hanno, Massimo Minervini, Andreas Fischbach and Sotirios A. Tsaftaris. “Annotated Image Datasets of Rosette Plants.” (2014).
-
-[Bell 2016] Bell, Jonathan, and Hannah M. Dee. Aberystwyth Leaf Evaluation Dataset [Data set]. Zenodo. http://doi.org/10.5281/zenodo.168158 (2016).
-
-[Minervini 2016] Minervini, Massimo, Andreas Fischbach, Hanno Scharr and Sotirios A. Tsaftaris. “Finely-grained annotated datasets for image-based plant phenotyping.” Pattern Recognit. Lett. 81 (2016): 80-89.
 
 [Singh] Singh, Arti, Baskar Ganapathysubramanian, Asheesh K Singh and Soumik Sarkar. “Machine Learning for High-Throughput Stress Phenotyping in Plants.” Trends in plant science 21 2 (2016): 110-124 .
 
