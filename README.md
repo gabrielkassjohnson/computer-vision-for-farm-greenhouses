@@ -50,13 +50,13 @@ in contrast to laboratory settings. So to generalize for field conditions, we tr
 
 
 <img src="test.gif" />
-Fig. 5. A test-set sequence of images withheld from training from "Annotated Image Datasets of Rosette Plants" [Scharr 2014]  And the resulting segmentation output of the neural network.
+Fig. 4. A test-set sequence of images withheld from training from "Annotated Image Datasets of Rosette Plants" [Scharr 2014]  And the resulting segmentation output of the neural network.
 
 Notably, the Aberyswyth dataset includes metadata for leaf mass, very carefully collected. This training data is incredibly valuable and hard to find. The current neural network is not making predictions for plant mass, but this is the most important next step for the project. Getting accurate predictions of mass means being able to draw mass curves, which can show the slowing of plant growth, and therefore create an opportunity for optimizing harvest timing. We've made a simple attempt to measure the mass of spinach leaves in the field, using the existing cameras to document a manual process of cutting and weighing, perhaps not the best method, but close to what really happens on farms. As an aside, there will be an important role to play for iot connected scales in integrated farm management systems. The wash/pack shed is where a lot of the most important work on the farm is done. Harvests can be improved or ruined through bad post-harvest handling. Since most crops are sold by weight, scales on the farm are of critical importance, and iot smart scales which can connect to cv models of harvested crops will create instant value for farm businesses.
 
 <img src="spinach.gif" />
 
-Figure 6. Results of the Neural Net on an original test set.
+Figure 5. Results of the Neural Net on an original test set.<br><br><br>
 
 
 The neural network is a bootstrapped version of a segmentation network from Facebook Research. The network is instantiated with pretrained weights, then the output layers are altered for the desired shape (in our case, a simple segmentation only model, with plant and background only. Then, the multiple datasets are collated into a single custom data-loader. The model is trained in parallel on one Nvidia GTX 1050i and one Nvidia GTX 1650i.
@@ -65,7 +65,9 @@ Next steps for the neural network include mass predictions, as dicsussed, and th
 
 
 ## Tracking Invasive Worms with Machine Learning and Computer Vision
+
 <img src="./tracking-invasive-worms-with-cv/worms/test.gif" />
+Figure 6. Drawing contours with traditional cv. <br><br><br>
 This example is meant to show the power of combining traditional cv tools, like OpenCV, with specialized cv tools for natural images like PlantCV, and data science techniques.
 New England has an invasive worm problem, disrupting ecosystems and causing economic damage.
 Several visual characteristics of these Pheretimoid earthworms suggest the possibility 
