@@ -50,8 +50,7 @@ Fig. 4. A test-set sequence of images withheld from training from "Annotated Ima
 
 
 <img src="spinach.gif" />
-
-Figure 5. Results of the Neural Net on an original test set.<br><br><br>
+Figure 5. Results of the Neural Net visualized on an original test of spinach plants set collected with the stationary camera system.<br><br><br>
 
 
 The neural network is a bootstrapped version of a segmentation network from Facebook Research. The network is instantiated with pretrained weights, then the output layers are altered for the desired shape (in our case, a simple segmentation only model, with plant and background only. Then, the multiple datasets are collated into a single custom data-loader. The model is trained in parallel on one Nvidia GTX 1050i and one Nvidia GTX 1650.
